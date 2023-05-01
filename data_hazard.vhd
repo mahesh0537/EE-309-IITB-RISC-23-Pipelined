@@ -169,7 +169,7 @@ begin
 			insertBubbleInPipeline => bubble_regA
 		);
 		
-		dataHazardDetectorForRegB: dataHazardDetector
+	dataHazardDetectorForRegB: dataHazardDetector
 		port map (
 			currentOpcode => currentOpcode,
 			currentRegister => currentRegisterB,
