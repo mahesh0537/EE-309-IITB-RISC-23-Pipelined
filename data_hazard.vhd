@@ -44,7 +44,7 @@ signal mem_hasArithHazard, mem_hasLoadHazard: std_logic;
 signal execute_hasHazard_temp, mem_hasArithHazard_temp, writeBack_hasHazard_temp: std_logic;
 begin
 
-	with  execute_WriteEnable & mem_opcode select
+	with  execute_WriteEnable & execute_opcode select
 		execute_hasHazard_temp <= '1' when
 				'1' & "0001" |	-- adds
 				'1' & "0000" |	-- adi
