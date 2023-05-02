@@ -1,5 +1,5 @@
 library ieee;
-use iee.std_logic_1164.all;
+use ieee.std_logic_1164.all;
 
 entity branchHazardDetector is
 	port (
@@ -15,7 +15,7 @@ entity branchHazardDetector is
 		branchPredictorGuess: in std_logic;
 		
 		-- whether there is a branch hazard
-		branchHazard: out std_logic;
+		branchHazard: out std_logic
 	);
 end entity branchHazardDetector;
 
