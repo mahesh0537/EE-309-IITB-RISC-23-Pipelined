@@ -1,0 +1,8 @@
+lli r1, 10
+beq r1, r2, 1
+aca r3, r1, r2
+
+; r0 = 6
+; r1 = 10
+; r3 = 9
+; cflag = 1
