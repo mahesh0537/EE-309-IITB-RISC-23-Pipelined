@@ -14,7 +14,7 @@ Z0 w1682931162
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 62
+!i122 226
 Z4 d/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined
 Z5 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd
 Z6 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd
@@ -24,9 +24,9 @@ VlNUi26Q`N_PMjHDA5QIKa3
 !s100 ]Z4B@ck8XJXiYUVe3a]`Y2
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1682963315
+Z8 !s110 1682989096
 !i10b 1
-Z9 !s108 1682963315.000000
+Z9 !s108 1682989096.000000
 Z10 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd|
 Z11 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd|
 !i113 1
@@ -37,7 +37,7 @@ R1
 R2
 R3
 DEx4 work 3 alu 0 22 lNUi26Q`N_PMjHDA5QIKa3
-!i122 62
+!i122 226
 l26
 L20 24
 VHdZQjLLf_4zZQ>DAhL:d23
@@ -57,7 +57,7 @@ R0
 R1
 R2
 R3
-!i122 62
+!i122 226
 R4
 R5
 R6
@@ -80,7 +80,7 @@ R1
 R2
 R3
 DEx4 work 11 alu_wrapper 0 22 S=Ha^dkLCX]k8jdK[mD9]1
-!i122 62
+!i122 226
 l89
 L67 107
 VJ]Hn4daYe5mVReeJ_OmL?2
@@ -100,7 +100,7 @@ Z14 w1682877376
 R1
 R2
 R3
-!i122 63
+!i122 227
 R4
 Z15 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/branch.vhd
 Z16 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/branch.vhd
@@ -123,7 +123,7 @@ R1
 R2
 R3
 DEx4 work 24 conditionalbranchhandler 0 22 9K:a=a>0VV:h6`m9>a3ZK2
-!i122 63
+!i122 227
 l21
 L17 22
 V>E;jjU6R0o<zlC3FmH?RE3
@@ -138,40 +138,37 @@ R18
 !i113 1
 R12
 R13
-Pdatatypeconverter
-R1
+Edataforwarder
+Z19 w1682985039
 R2
 R3
-!i122 61
-Z19 w1682846875
+!i122 231
 R4
-Z20 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl
-Z21 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl
+Z20 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd
+Z21 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd
 l0
-L7 1
-VYV^2lo_m<VhRPW;hM8o5G3
-!s100 dEAF^CH@Km:AnHg<@QDCG1
+L91 1
+VkNA`FiB6OH>OaI2T9fRXb1
+!s100 3I5@ASYTecVz<:cCU1QcP2
 R7
 32
-b1
 R8
 !i10b 1
 R9
-Z22 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl|
-Z23 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl|
+Z22 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd|
+Z23 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd|
 !i113 1
 R12
 R13
-Bbody
-Z24 DPx4 work 17 datatypeconverter 0 22 YV^2lo_m<VhRPW;hM8o5G3
-R1
+Aimpl
 R2
 R3
-!i122 61
-l0
-L22 1
-V>7@dZ:[D=l@^RYF8N?V4K2
-!s100 90zN79S:@Ql0]O3BdXBdg2
+DEx4 work 13 dataforwarder 0 22 kNA`FiB6OH>OaI2T9fRXb1
+!i122 231
+l151
+L122 85
+V>:J>^AzIgVn[g2fgHXegV2
+!s100 c@7j7:WQFXIohWgo7ohl?0
 R7
 32
 R8
@@ -182,15 +179,102 @@ R23
 !i113 1
 R12
 R13
-Eexecstage
-Z25 w1682961619
+Edatahazarddetector
+R19
 R1
 R2
 R3
-!i122 64
+!i122 231
 R4
-Z26 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd
-Z27 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd
+R20
+R21
+l0
+L5 1
+VVLjX=m;?2_HllHn>H8:T32
+!s100 EmRU2cXISmIHbXRB3N2Ak3
+R7
+32
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 1
+R12
+R13
+Aimpl
+R1
+R2
+R3
+DEx4 work 18 datahazarddetector 0 22 VLjX=m;?2_HllHn>H8:T32
+!i122 231
+l45
+L42 45
+Vz<[SgO_g8OK>691A8JhQT0
+!s100 C4GeW=;Q5HBT;`]1d=T`@0
+R7
+32
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 1
+R12
+R13
+Pdatatypeconverter
+R1
+R2
+R3
+!i122 225
+Z24 w1682846875
+R4
+Z25 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl
+Z26 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl
+l0
+L7 1
+VYV^2lo_m<VhRPW;hM8o5G3
+!s100 dEAF^CH@Km:AnHg<@QDCG1
+R7
+32
+b1
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl|
+Z28 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl|
+!i113 1
+R12
+R13
+Bbody
+Z29 DPx4 work 17 datatypeconverter 0 22 YV^2lo_m<VhRPW;hM8o5G3
+R1
+R2
+R3
+!i122 225
+l0
+L22 1
+V>7@dZ:[D=l@^RYF8N?V4K2
+!s100 90zN79S:@Ql0]O3BdXBdg2
+R7
+32
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 1
+R12
+R13
+Eexecstage
+Z30 w1682961619
+R1
+R2
+R3
+!i122 228
+R4
+Z31 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd
+Z32 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd
 l0
 L5 1
 V=0joDO7HklY9A:1]ZL1?^1
@@ -200,8 +284,8 @@ R7
 R8
 !i10b 1
 R9
-Z28 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd|
-Z29 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd|
+Z33 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd|
+Z34 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd|
 !i113 1
 R12
 R13
@@ -210,52 +294,11 @@ R1
 R2
 R3
 DEx4 work 9 execstage 0 22 =0joDO7HklY9A:1]ZL1?^1
-!i122 64
+!i122 228
 l121
 L50 165
 V@9[HkKOk3g9`D18XAH9CB3
 !s100 kUeFc]3:MgL?Z7klKMX^R2
-R7
-32
-R8
-!i10b 1
-R9
-R28
-R29
-!i113 1
-R12
-R13
-Eflagreg
-Z30 w1682947402
-R2
-R3
-!i122 65
-R4
-Z31 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd
-Z32 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd
-l0
-L4 1
-V^GDg43COlfL6[QzMz[T:X1
-!s100 jBeM0DT8]<_7SYTNVOElI2
-R7
-32
-R8
-!i10b 1
-R9
-Z33 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd|
-Z34 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd|
-!i113 1
-R12
-R13
-Artl
-R2
-R3
-DEx4 work 7 flagreg 0 22 ^GDg43COlfL6[QzMz[T:X1
-!i122 65
-l16
-L14 16
-VzT`S=A^Pl=l^9z:GZ1f1J2
-!s100 lQ<[O7k<l]UEi0FCLNX]23
 R7
 32
 R8
@@ -266,32 +309,73 @@ R34
 !i113 1
 R12
 R13
+Eflagreg
+Z35 w1682947402
+R2
+R3
+!i122 229
+R4
+Z36 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd
+Z37 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd
+l0
+L4 1
+V^GDg43COlfL6[QzMz[T:X1
+!s100 jBeM0DT8]<_7SYTNVOElI2
+R7
+32
+R8
+!i10b 1
+R9
+Z38 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd|
+Z39 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+DEx4 work 7 flagreg 0 22 ^GDg43COlfL6[QzMz[T:X1
+!i122 229
+l16
+L14 16
+VzT`S=A^Pl=l^9z:GZ1f1J2
+!s100 lQ<[O7k<l]UEi0FCLNX]23
+R7
+32
+R8
+!i10b 1
+R9
+R38
+R39
+!i113 1
+R12
+R13
 Eif_id_reg
-Z35 w1682963309
-R24
+Z40 w1682963309
+R29
 R1
 R3
 R2
 !i122 70
 R4
-Z36 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd
-Z37 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd
+Z41 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd
+Z42 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd
 l0
 L9 1
 V<Y1_GhjoZ2_YdJGVmoSZg2
 !s100 Jn@:D5CP_31TYcKZ5^E]Y2
 R7
 32
-R8
+Z43 !s110 1682963315
 !i10b 1
-R9
-Z38 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd|
-Z39 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd|
+Z44 !s108 1682963315.000000
+Z45 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd|
+Z46 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd|
 !i113 1
 R12
 R13
 Awhatever
-R24
+R29
 R1
 R3
 R2
@@ -303,11 +387,11 @@ VZ3^S:l^_Jz?77<R:kTD7Y1
 !s100 AFl0oUgW:7aZ`7F6eaom`0
 R7
 32
-R8
+R43
 !i10b 1
-R9
-R38
-R39
+R44
+R45
+R46
 !i113 1
 R12
 R13
@@ -315,10 +399,10 @@ Einstructiondecoder
 R0
 R2
 R3
-!i122 66
+!i122 230
 R4
-Z40 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd
-Z41 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd
+Z47 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd
+Z48 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd
 l0
 L4 1
 VN]eXEn0NKzS_N_B8b]@E33
@@ -328,8 +412,8 @@ R7
 R8
 !i10b 1
 R9
-Z42 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd|
-Z43 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd|
+Z49 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd|
+Z50 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instruction_decode.vhd|
 !i113 1
 R12
 R13
@@ -337,7 +421,7 @@ Aimpl
 R2
 R3
 DEx4 work 18 instructiondecoder 0 22 N]eXEn0NKzS_N_B8b]@E33
-!i122 66
+!i122 230
 l44
 L31 44
 VKiAR:9]EgLceZHai8U^ZO1
@@ -347,31 +431,31 @@ R7
 R8
 !i10b 1
 R9
-R42
-R43
+R49
+R50
 !i113 1
 R12
 R13
 Einstructionfetch
-Z44 w1682953531
+Z51 w1682978849
 R1
 R2
 R3
-!i122 67
+!i122 232
 R4
-Z45 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd
-Z46 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd
+Z52 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd
+Z53 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd
 l0
 L5 1
-VG5z@;:J^XoCnNUSR^`i3T3
-!s100 aXRDLYazgZOV6AdVD[`LN3
+V_cN7L>HJYIBGQ_=RBf:kM0
+!s100 G9F4MObLRIhP_^h><g2fa0
 R7
 32
 R8
 !i10b 1
 R9
-Z47 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd|
-Z48 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd|
+Z54 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd|
+Z55 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd|
 !i113 1
 R12
 R13
@@ -379,31 +463,31 @@ Aimpl
 R1
 R2
 R3
-DEx4 work 16 instructionfetch 0 22 G5z@;:J^XoCnNUSR^`i3T3
-!i122 67
-l34
-L16 32
-V:dI^WMoUkM^a1<jaSeB260
-!s100 n@Z:mbTS2mgR;I[T7]N101
+DEx4 work 16 instructionfetch 0 22 _cN7L>HJYIBGQ_=RBf:kM0
+!i122 232
+l35
+L17 32
+VDdb?>Y66^XR8i2^aVB4k[0
+!s100 A=E[XBWNQ?;I_XHbjinK`3
 R7
 32
 R8
 !i10b 1
 R9
-R47
-R48
+R54
+R55
 !i113 1
 R12
 R13
 Einstructionmemory
-Z49 w1682962069
+Z56 w1682988222
 R1
 R2
 R3
-!i122 68
+!i122 233
 R4
-Z50 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl
-Z51 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl
+Z57 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl
+Z58 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl
 l0
 L10 1
 VDhQNIT<GU93Q?`>O?D39Z2
@@ -413,8 +497,8 @@ R7
 R8
 !i10b 1
 R9
-Z52 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl|
-Z53 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl|
+Z59 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl|
+Z60 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionMem.vhdl|
 !i113 1
 R12
 R13
@@ -423,30 +507,30 @@ R1
 R2
 R3
 DEx4 work 17 instructionmemory 0 22 DhQNIT<GU93Q?`>O?D39Z2
-!i122 68
+!i122 233
 l150
 L18 136
-Va09Z_3GojU=XJK_aF1BHE1
-!s100 0IbLfY]Y]GIDa;eKlmeXF3
+Voi`ocVeeKAOII_iKzUUl=1
+!s100 U:F42cTR`00ALFhdzjmR62
 R7
 32
 R8
 !i10b 1
 R9
-R52
-R53
+R59
+R60
 !i113 1
 R12
 R13
 Eloadstorehandler
-Z54 w1682961793
+Z61 w1682961793
 R1
 R2
 R3
-!i122 69
+!i122 234
 R4
-Z55 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd
-Z56 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd
+Z62 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd
+Z63 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd
 l0
 L5 1
 VaOiQ9BJX592N3[LXocK@^0
@@ -456,8 +540,8 @@ R7
 R8
 !i10b 1
 R9
-Z57 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd|
-Z58 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd|
+Z64 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd|
+Z65 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd|
 !i113 1
 R12
 R13
@@ -466,7 +550,7 @@ R1
 R2
 R3
 DEx4 work 16 loadstorehandler 0 22 aOiQ9BJX592N3[LXocK@^0
-!i122 69
+!i122 234
 l27
 L26 17
 VDB5_;8JG^<9O]IdmX@99K2
@@ -476,31 +560,31 @@ R7
 R8
 !i10b 1
 R9
-R57
-R58
+R64
+R65
 !i113 1
 R12
 R13
 Ememory
-Z59 w1682765287
+Z66 w1682765287
 R1
 R2
 R3
-!i122 72
+!i122 236
 R4
-Z60 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl
-Z61 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl
+Z67 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl
+Z68 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl
 l0
 L5 1
 V8oh<3Kc4cz]PNVKB^GJnK1
 !s100 Lf`?R@c9BRS=d1_AT?N4Y0
 R7
 32
-Z62 !s110 1682963316
+R8
 !i10b 1
 R9
-Z63 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl|
-Z64 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl|
+Z69 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl|
+Z70 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl|
 !i113 1
 R12
 R13
@@ -509,40 +593,40 @@ R1
 R2
 R3
 DEx4 work 6 memory 0 22 8oh<3Kc4cz]PNVKB^GJnK1
-!i122 72
+!i122 236
 l21
 L15 17
 VhNFcX]ejJB^iZLEK]:EQo2
 !s100 kJ4^E:KD;4FTnDUidf3`V1
 R7
 32
-R62
+R8
 !i10b 1
 R9
-R63
-R64
+R69
+R70
 !i113 1
 R12
 R13
 Emux2
-Z65 w1682861767
+Z71 w1682861767
 R2
 R3
-!i122 73
+!i122 237
 R4
-Z66 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd
-Z67 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd
+Z72 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd
+Z73 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd
 l0
 L4 1
 VGb?[[d8c6zD^aJZNaTSIa2
 !s100 aaH50@`dQ_DalLWKamT]j2
 R7
 32
-R62
+Z74 !s110 1682989097
 !i10b 1
-Z68 !s108 1682963316.000000
-Z69 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd|
-Z70 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd|
+R9
+Z75 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd|
+Z76 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/mux2.vhd|
 !i113 1
 R12
 R13
@@ -550,41 +634,127 @@ Artl
 R2
 R3
 DEx4 work 4 mux2 0 22 Gb?[[d8c6zD^aJZNaTSIa2
-!i122 73
+!i122 237
 l13
 L12 4
 Vc94k0g7H?nH6EfB=Sz;KS2
 !s100 ][ZcL]CRM6;TenNkTPELR2
 R7
 32
-R62
+R74
 !i10b 1
-R68
-R69
-R70
+R9
+R75
+R76
+!i113 1
+R12
+R13
+Enbitregister
+Z77 w1682966944
+R2
+R3
+!i122 241
+R4
+Z78 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/register.vhd
+Z79 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/register.vhd
+l0
+L4 1
+V>OSdaA16cH6BPCIXjXXzW3
+!s100 a4XPgAAWokJJOJiWWaF820
+R7
+32
+R74
+!i10b 1
+Z80 !s108 1682989097.000000
+Z81 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/register.vhd|
+Z82 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/register.vhd|
+!i113 1
+R12
+R13
+Aimpl
+R2
+R3
+DEx4 work 12 nbitregister 0 22 >OSdaA16cH6BPCIXjXXzW3
+!i122 241
+l19
+L18 12
+VDNmcBDE`R_:8BP<_8:L:n0
+!s100 f>kWMFbzn]kYL;@?iiK>h1
+R7
+32
+R74
+!i10b 1
+R80
+R81
+R82
+!i113 1
+R12
+R13
+Epipelinedatapath
+Z83 w1682989075
+R29
+R1
+R3
+R2
+!i122 242
+R4
+R41
+R42
+l0
+L9 1
+V9_WgA@oLb@YOD^Al:S0l:1
+!s100 UzF__49S332HzGD_dSAb92
+R7
+32
+R74
+!i10b 1
+R80
+R45
+R46
+!i113 1
+R12
+R13
+Awhatever
+R29
+R1
+R3
+R2
+Z84 DEx4 work 16 pipelinedatapath 0 22 9_WgA@oLb@YOD^Al:S0l:1
+!i122 242
+l239
+L12 449
+VVR<JWSV8`G0:3IMhJbN6:0
+!s100 dmVKWHl?zl^bGPQOWCmJn1
+R7
+32
+R74
+!i10b 1
+R80
+R45
+R46
 !i113 1
 R12
 R13
 Eregfile
-Z71 w1682946006
+Z85 w1682946006
 R1
 R2
 R3
-!i122 74
+!i122 238
 R4
-Z72 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl
-Z73 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl
+Z86 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl
+Z87 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl
 l0
 L6 1
 VYaOHF^?RJM90CiXNl0=062
 !s100 NIzb^QfG5B3doZ8_6_l8X2
 R7
 32
-R62
+R74
 !i10b 1
-R68
-Z74 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl|
-Z75 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl|
+R80
+Z88 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl|
+Z89 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/registerFile.vhdl|
 !i113 1
 R12
 R13
@@ -593,40 +763,40 @@ R1
 R2
 R3
 DEx4 work 7 regfile 0 22 YaOHF^?RJM90CiXNl0=062
-!i122 74
+!i122 238
 l24
 L19 26
 V<c6FklmObOWLGX@o3fcEm0
 !s100 3jIoQHnn5T8LB]YmS3`HK0
 R7
 32
-R62
-!i10b 1
-R68
 R74
-R75
+!i10b 1
+R80
+R88
+R89
 !i113 1
 R12
 R13
 Esignextender
-Z76 w1682760515
+Z90 w1682760515
 R2
 R3
-!i122 75
+!i122 239
 R4
-Z77 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd
-Z78 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd
+Z91 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd
+Z92 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd
 l0
 L4 1
 V6?n`7ERRgToiXA[3Pbn0R3
 !s100 <bOiYafGKAEf_9e5GDj<83
 R7
 32
-R62
+R74
 !i10b 1
-R68
-Z79 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd|
-Z80 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd|
+R80
+Z93 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd|
+Z94 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/sign_extenders.vhd|
 !i113 1
 R12
 R13
@@ -634,18 +804,18 @@ Astruct
 R2
 R3
 DEx4 work 12 signextender 0 22 6?n`7ERRgToiXA[3Pbn0R3
-!i122 75
+!i122 239
 l16
 L15 4
 V2Xf7RoCaMQ02B?9KS8dYW3
 !s100 5N_5ZlYXA]cIXgHoXL4Z10
 R7
 32
-R62
+R74
 !i10b 1
-R68
-R79
 R80
+R93
+R94
 !i113 1
 R12
 R13
@@ -654,7 +824,7 @@ R14
 R1
 R2
 R3
-!i122 63
+!i122 227
 R4
 R15
 R16
@@ -677,7 +847,7 @@ R1
 R2
 R3
 DEx4 work 26 unconditionalbranchhandler 0 22 eWU[ZNe`?TMfZC:5hNek83
-!i122 63
+!i122 227
 l57
 L56 18
 VR6bKQ1:Jl0`_^cmDEkPmh0
@@ -693,43 +863,43 @@ R18
 R12
 R13
 Ewriteback
-Z81 w1682945493
+Z95 w1682979356
 R2
 R3
-!i122 76
+!i122 240
 R4
-Z82 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd
-Z83 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd
+Z96 8/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd
+Z97 F/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd
 l0
 L4 1
-VEC=?:X`:lG]ajVG^YzRj]0
-!s100 42mC@z@l^0SSPnTnoW>5i3
+VDePCP<4Z46k:0fhnOG]7n1
+!s100 z>Ch^aQ>Q_ieCf:9k^JSP1
 R7
 32
-R62
+R74
 !i10b 1
-R68
-Z84 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd|
-Z85 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd|
+R80
+Z98 !s90 -reportprogress|300|-work|pipeline|-2002|-explicit|-stats=none|/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd|
+Z99 !s107 /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd|
 !i113 1
 R12
 R13
 Aarch
 R2
 R3
-Z86 DEx4 work 9 writeback 0 22 EC=?:X`:lG]ajVG^YzRj]0
-!i122 76
-l27
-Z87 L18 15
-Z88 VaH9aQF_fIH;2;EdC?j<962
-Z89 !s100 OdEI5J=f9b:gjm@z<RC2D2
+DEx4 work 9 writeback 0 22 DePCP<4Z46k:0fhnOG]7n1
+!i122 240
+l28
+L19 15
+VlcjBKI;=6z<5eTUODRc860
+!s100 59^DL1<_FfG;E@XVz]GK^3
 R7
 32
-R62
+R74
 !i10b 1
-R68
-R84
-R85
+R80
+R98
+R99
 !i113 1
 R12
 R13

@@ -9,7 +9,8 @@ entity instructionFetch is
         instruction : out std_logic_vector(15 downto 0);
         PCfromEx : in std_logic_vector(15 downto 0);
         PCbranchSignal_Ex : in std_logic;
-        PCOutFinal : out std_logic_vector(15 downto 0)
+        PCOutFinal : out std_logic_vector(15 downto 0);
+        GotBubbled : in std_logic
     );
 end entity;
 
@@ -43,5 +44,5 @@ begin
         sel => PCbranchSignal_Ex,
         data_out => PCOutFinal
     );
-    PCnormalUpdate <= std_logic_vector(unsigned(PCtoFetch) + 2);
+    PCnormalUpdate <= std_logic_vector(unsigned(PCtoFetch) + 2) when GotBubbled = '0' else PCtoFetch;
 end impl;

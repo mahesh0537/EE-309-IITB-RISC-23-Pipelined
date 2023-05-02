@@ -11,7 +11,8 @@ entity writeBack is
         writeDataIN_RAM : in std_logic_vector(15 downto 0);
         writeDataOUT : out std_logic_vector(15 downto 0);
         writeAddressIN : in std_logic_vector(2 downto 0);
-        writeAddressOUT : out std_logic_vector(2 downto 0)
+        writeAddressOUT : out std_logic_vector(2 downto 0);
+        GotFlushed : in std_logic
     );
 end entity;
 
@@ -27,6 +28,6 @@ architecture arch of writeBack is
 begin
     -- mux2_ExRAM : mux2 port map(writeDataIN_Ex, writeDataIN_RAM, selectSignalEx_RAM, writeDataOUT);
     writeDataOUT <= writeDataIN_Ex when selectSignalEx_RAM = '0' else writeDataIN_RAM;
-    writeSignalOut <= writeSignal;
+    writeSignalOut <= writeSignal when GotFlushed = '0' else '0';
     writeAddressOUT <= writeAddressIN;            
 end arch;

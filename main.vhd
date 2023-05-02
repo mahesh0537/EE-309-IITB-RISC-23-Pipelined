@@ -6,10 +6,10 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.dataTypeConverter.all;
 
-entity IF_ID_Reg is
-end entity IF_ID_Reg;
+entity pipelineDataPath is
+end entity pipelineDataPath;
 
-architecture whatever of IF_ID_Reg is
+architecture whatever of pipelineDataPath is
     --Component
     component instructionFetch is
         port(
@@ -18,8 +18,40 @@ architecture whatever of IF_ID_Reg is
         instruction : out std_logic_vector(15 downto 0);
         PCfromEx : in std_logic_vector(15 downto 0);
         PCbranchSignal_Ex : in std_logic;
-        PCOutFinal : out std_logic_vector(15 downto 0)
+        PCOutFinal : out std_logic_vector(15 downto 0);
+        GotBubbled : in std_logic
     );
+    end component;
+
+    component dataForwarder is
+        port(
+            -- the opcode of the instruction that is going to be executed
+            currentOpcode: in std_logic_vector(3 downto 0);
+            
+            -- the two inputs to the execute stage
+            currentRegisterA: in std_logic_vector(2 downto 0);
+            currentRegisterAValue: in std_logic_vector(15 downto 0);
+            currentRegisterB: in std_logic_vector(2 downto 0);
+            currentRegisterBValue: in std_logic_vector(15 downto 0);
+            
+            execute_RegToWrite: in std_logic_vector(2 downto 0);
+            execute_WriteEnable: in std_logic;
+            execute_RegValue: in std_logic_vector(15 downto 0);
+            execute_opcode: in std_logic_vector(3 downto 0);
+            mem_RegToWrite: in std_logic_vector(2 downto 0);
+            mem_WriteEnable: in std_logic;
+            mem_RegValue: in std_logic_vector(15 downto 0);
+            mem_opcode: in std_logic_vector(3 downto 0);
+            writeBack_RegToWrite: in std_logic_vector(2 downto 0);
+            writeBack_WriteEnable: in std_logic;
+            writeBack_RegValue: in std_logic_vector(15 downto 0);
+            writeBack_opcode: in std_logic_vector(3 downto 0);
+            
+            dataToUseAfterAccountingHazardsRegA: out std_logic_vector(15 downto 0);
+            dataToUseAfterAccountingHazardsRegB: out std_logic_vector(15 downto 0);
+            
+            insertBubbleInPipeline: out std_logic
+        );
     end component;
 
     component instructionDecoder is 
@@ -111,7 +143,8 @@ architecture whatever of IF_ID_Reg is
             writeDataIN_RAM : in std_logic_vector(15 downto 0);
             writeDataOUT : out std_logic_vector(15 downto 0);
             writeAddressIN : in std_logic_vector(2 downto 0);
-            writeAddressOUT : out std_logic_vector(2 downto 0)
+            writeAddressOUT : out std_logic_vector(2 downto 0);
+            GotFlushed : in std_logic
         );
     end component;
 
@@ -125,6 +158,19 @@ architecture whatever of IF_ID_Reg is
         );
     end component;
 
+    component NBitRegister is
+        generic (
+            N: integer;
+            default: std_logic := '0'
+        );
+        port (
+            dataIn: in std_logic_vector(N-1 downto 0);
+            writeEnable: in std_logic;
+            clk: in std_logic;
+            asyncReset: in std_logic;
+            dataOut: out std_logic_vector(N-1 downto 0)
+        );
+    end component;
 
 
     --Signals
@@ -176,8 +222,67 @@ architecture whatever of IF_ID_Reg is
     signal randomSignal : std_logic := '0';
 
 
+    --Signals for Pipeline Registers
+    signal FetchToDecodeDataIn, FetchToDecodeDataOut : std_logic_vector(31 downto 0) := (others => '0');
+    signal DecodeToRegFileDataIn, DecodeToRegFileDataOut : std_logic_vector(48 downto 0) := (others => '0');
+    signal RegFileToExecDataIn, RegFileToExecDataOut : std_logic_vector(80 downto 0) := (others => '0');
+    signal ExecToMemDataIn, ExecToMemDataOut : std_logic_vector(60 downto 0) := (others => '0');
+    signal MemToWBDataIn, MemToWBDataOut : std_logic_vector(43 downto 0) := (others => '0');
+    signal GotBubbled : std_logic := '0';
+    signal GotFlushed : std_logic := '0';
+    signal NotGotBubble : std_logic := '1';
+    signal Reg1DataAfterHz : std_logic_vector(15 downto 0) := (others => '0');
+    signal Reg2DataAfterHz : std_logic_vector(15 downto 0) := (others => '0');
+
+
 
 begin
+    IF_ID_Reg : NBitRegister
+        generic map(N => 32, default => '0')
+        port map(
+            dataIn => FetchToDecodeDataIn,
+            writeEnable => NotGotBubble,
+            clk => clk,
+            asyncReset => '0',
+            dataOut => FetchToDecodeDataOut
+        );
+
+    ID_Reg_Reg: NBitRegister
+        generic map(N => 49, default => '0')
+        port map(
+            dataIn => DecodeToRegFileDataIn,
+            writeEnable => NotGotBubble,
+            clk => clk,
+            asyncReset => '0',
+            dataOut => DecodeToRegFileDataOut
+        );
+    Reg_Ex_Reg: NBitRegister
+        generic map(N => 81, default => '0')
+        port map(
+            dataIn => RegFileToExecDataIn,
+            writeEnable => NotGotBubble,
+            clk => clk,
+            asyncReset => '0',
+            dataOut => RegFileToExecDataOut
+        );
+    Ex_mem_Reg: NBitRegister
+        generic map(N => 61, default => '0')
+        port map(
+            dataIn => ExecToMemDataIn,
+            writeEnable => '1',
+            clk => clk,
+            asyncReset => '0',
+            dataOut => ExecToMemDataOut
+        );
+    mem_Wb_Reg: NBitRegister
+        generic map(N => 44, default => '0')
+        port map(
+            dataIn => MemToWBDataIn,
+            writeEnable => '1',
+            clk => clk,
+            asyncReset => '0',
+            dataOut => MemToWBDataOut
+        );
     flagReg1 : flagReg port map(
         clk => clk, reset => resetFlags,
         SetZ => Z_Ex, Z => Z_FlagReg,
@@ -186,66 +291,132 @@ begin
     instructionFetch1 : instructionFetch port map(
         clk => clk,
         PCtoFetch => PC_RF,
-        instruction => instruction_IF,
+        instruction => FetchToDecodeDataIn(15 downto 0),
         PCfromEx => PCfrom_Ex,
         PCbranchSignal_Ex => PCbranchSignal_Ex,
-        PCOutFinal => PCOutFinal_IF
+        PCOutFinal => FetchToDecodeDataIn(31 downto 16),
+        GotBubbled => GotBubbled
     );
     instructionDecode1 : instructionDecoder port map(
-        instruction => instruction_IF,
-        Ra => Ra_ID, Rb => Rb_ID, Rc => Rc_ID,
-        immediate => immediate_ID, condition => condition_ID,
-        useComplement => useComplement_ID,
-        opcode => opcode_ID
+        instruction => FetchToDecodeDataOut(15 downto 0),
+        Ra => DecodeToRegFileDataIn(3 downto 1), Rb => DecodeToRegFileDataIn( 6 downto 4), Rc => DecodeToRegFileDataIn(9 downto 7),
+        immediate => DecodeToRegFileDataIn(25 downto 10), condition => DecodeToRegFileDataIn(27 downto 26),
+        useComplement => DecodeToRegFileDataIn(28),
+        opcode => DecodeToRegFileDataIn(32 downto 29)
     );
     regFile1 : regFile port map(
         clk => clk,
         regWrite => regWriteEnable_WB,
-        reg1Addr => Ra_ID, reg2Addr => Rb_ID, reg3Addr => reg3Addr_WB,
-        reg1Data => reg1Data_RF, reg2Data => reg2Data_RF, reg3Data => reg3Data_WB,
+        reg1Addr => DecodeToRegFileDataOut(3 downto 1), reg2Addr => DecodeToRegFileDataOut( 6 downto 4), reg3Addr => reg3Addr_WB,
+        reg1Data => RegFileToExecDataIn(16 downto 1), reg2Data => RegFileToExecDataIn(32 downto 17), reg3Data => reg3Data_WB,
         PC => PC_RF, PCtoRF => PCOutFinal_IF,
         reset => regResetSignal, updatePC => updatePCinRegFile, readPC => '1'
     );
+
+    dataForwarder1 : dataForwarder port map(
+        currentOpcode => DecodeToRegFileDataOut(32 downto 29),
+        currentRegisterA => DecodeToRegFileDataOut(3 downto 1),
+        currentRegisterAValue => RegFileToExecDataIn(16 downto 1),
+        currentRegisterB => DecodeToRegFileDataOut( 6 downto 4),
+        currentRegisterBValue => RegFileToExecDataIn(32 downto 17),
+
+        execute_RegToWrite => ExecToMemDataIn(19 downto 17),
+        execute_WriteEnable => ExecToMemDataIn(20),
+        execute_RegValue => ExecToMemDataIn(16 downto 1),
+        execute_opcode => RegFileToExecDataOut(64 downto 61),
+
+        mem_RegToWrite => ExecToMemDataOut(19 downto 17),
+        mem_WriteEnable => ExecToMemDataOut(20),
+        mem_RegValue => ExecToMemDataOut(16 downto 1),
+        mem_opcode => ExecToMemDataOut(60 downto 57),
+
+        writeBack_RegToWrite => MemToWBDataOut(38 downto 36),
+        writeBack_WriteEnable => MemToWBDataOut(18),
+        writeBack_RegValue => MemToWBDataOut(35 downto 20),
+        writeBack_opcode => MemToWBDataIn(43 downto 40),
+
+        dataToUseAfterAccountingHazardsRegA => Reg1DataAfterHz,
+        dataToUseAfterAccountingHazardsRegB => Reg2DataAfterHz,
+
+        insertBubbleInPipeline => GotBubbled
+    );
     execStage1 : execStage port map(
-        opcode => opcode_ID,
-        Ra => Ra_ID, Rb => Rb_ID, Rc => Rc_ID,
-        RaValue => reg1Data_RF, RbValue => reg2Data_RF,
-        immediate => immediate_ID, condition => condition_ID,
-        useComplement => useComplement_ID,
-        PC => PC_RF,
+        opcode => RegFileToExecDataOut(64 downto 61),
+        Ra => RegFileToExecDataOut(35 downto 33), Rb => RegFileToExecDataOut(38 downto 36), Rc => RegFileToExecDataOut(41 downto 39),
+        RaValue => RegFileToExecDataOut(16 downto 1), RbValue => RegFileToExecDataOut(32 downto 17),
+        immediate => RegFileToExecDataOut(57 downto 42), condition => RegFileToExecDataOut(59 downto 58),
+        useComplement => RegFileToExecDataOut(60),
+        PC => RegFileToExecDataOut(80 downto 65),
         PC_new => PCfrom_Ex,
         useNewPc => PCbranchSignal_Ex,
-        regNewValue => reg3Data_Ex,
-        regToWrite => reg3Addr_Ex,
-        writeReg => randomSignal,
+        regNewValue => ExecToMemDataIn(16 downto 1),
+        regToWrite => ExecToMemDataIn(19 downto 17),
+        writeReg => ExecToMemDataIn(20),
         zeroFlagIn => Z_FlagReg, zeroFlagOut => Z_Ex,
         carryFlagIn => C_FlagReg, carryFlagOut => C_Ex,
-        RAM_Address => RAM_Address_Ex,
-        RAM_writeEnable => RAM_writeEnable_Ex,
-        RAM_DataToWrite => RAM_DataToWrite_Ex,
-        writeBackUseRAM_orALU => writeBackUseRAM_orALU_Ex,
-        writeBackEnable => writeBackEnable_Ex,
-        stallInstructionRead => stallInstructionRead_Ex
+        RAM_Address => ExecToMemDataIn(36 downto 21),
+        RAM_writeEnable => ExecToMemDataIn(37),
+        RAM_DataToWrite => ExecToMemDataIn(53 downto 38),
+        writeBackUseRAM_orALU => ExecToMemDataIn(54),
+        writeBackEnable => ExecToMemDataIn(55),
+        stallInstructionRead => ExecToMemDataIn(56)
     );
     RAM1 : memory port map(
-        RAM_Address => RAM_Address_Ex,
-        RAM_Data_IN => RAM_DataToWrite_Ex,
-        RAM_Data_OUT => RAM_Data_OUT_MEM,
-        RAM_Write => RAM_writeEnable_Ex,
+        RAM_Address => ExecToMemDataOut(36 downto 21),
+        RAM_Data_IN => ExecToMemDataOut(53 downto 38),
+        RAM_Data_OUT => MemToWBDataIn(16 downto 1),
+        RAM_Write => ExecToMemDataOut(37),
         RAM_Clock => clk
     );
 
     writeBack1 : writeBack port map(
         clk => clk,
-        writeSignal => writeBackEnable_Ex,
+        writeSignal => MemToWBDataOut(18),
         writeSignalOut => regWriteEnable_WB,
-        selectSignalEx_RAM => writeBackUseRAM_orALU_Ex,
-        writeDataIN_Ex => reg3Data_Ex,
-        writeDataIN_RAM => RAM_Data_OUT_MEM,
+        selectSignalEx_RAM => MemToWBDataOut(17),
+        writeDataIN_Ex => MemToWBDataOut(35 downto 20),
+        writeDataIN_RAM => MemToWBDataOut(16 downto 1),
         writeDataOUT => reg3Data_WB,
-        writeAddressIN => reg3Addr_Ex,
-        writeAddressOUT => reg3Addr_WB
+        writeAddressIN => MemToWBDataOut(38 downto 36),
+        writeAddressOUT => reg3Addr_WB,
+        GotFlushed => MemToWBDataOut(0)
     );
+    --Flushing the instructions in case of wrong branch
+    DecodeToRegFileDataIn(0) <= GotFlushed;
+    RegFileToExecDataIn(0) <= '1' when GotFlushed = '1' else DecodeToRegFileDataOut(0);
+    --Decode Stage linking
+    DecodeToRegFileDataIn(48 downto 33) <= FetchToDecodeDataOut(31 downto 16); --PC
+    --RgeFil Stage linking
+    RegFileToExecDataIn(35 downto 33) <= DecodeToRegFileDataOut(3 downto 1); --Reg1Addr
+    RegFileToExecDataIn(38 downto 36) <= DecodeToRegFileDataOut(6 downto 4); --Reg2Addr
+    RegFileToExecDataIn(41 downto 39) <= DecodeToRegFileDataOut(9 downto 7); --Reg3Addr
+    RegFileToExecDataIn(57 downto 42) <= DecodeToRegFileDataOut(25 downto 10); --Immediate
+    RegFileToExecDataIn(59 downto 58) <= DecodeToRegFileDataOut(27 downto 26); --Condition
+    RegFileToExecDataIn(60) <= DecodeToRegFileDataOut(28); --UseComplement
+    RegFileToExecDataIn(64 downto 61) <= DecodeToRegFileDataOut(32 downto 29); --Opcode
+    RegFileToExecDataIn(80 downto 65) <= DecodeToRegFileDataOut(48 downto 33); --PC
+    --Exec Stage linking
+    ExecToMemDataIn(0) <= RegFileToExecDataOut(0);
+    ExecToMemDataIn(60 downto 57) <= RegFileToExecDataOut(64 downto 61); --Opcode
+
+
+    --Mem Stage linking
+    MemToWBDataIn(0) <= ExecToMemDataOut(0); --Flush
+    MemToWBDataIn(17) <= ExecToMemDataOut(54); --WriteBackUseRAM_orALU
+    MemToWBDataIn(18) <= ExecToMemDataOut(55); --WriteBackEnable
+    MemToWBDataIn(19) <= ExecToMemDataOut(56); --StallInstructionRead
+    MemToWBDataIn(35 downto 20) <= ExecToMemDataOut(16 downto 1); --RegDataToWrite
+    MemToWBDataIn(38 downto 36) <= ExecToMemDataOut(19 downto 17); --RegToWrite
+    MemToWBDataIn(39) <= ExecToMemDataOut(20); --if writeReg
+    MemToWBDataIn(43 downto 40) <= ExecToMemDataOut(60 downto 57);
+
+    NotGotBubble <= not GotBubbled;
+
+    PCOutFinal_IF <= FetchToDecodeDataIn(31 downto 16);
+
+
+
+    
     
     process
     variable OUTPUT_LINE: line;
@@ -267,71 +438,11 @@ begin
             write(OUTPUT_LINE, std_logic_to_bit(clk));
             writeline(OUTFILE, OUTPUT_LINE);
             write(OUTPUT_LINE, to_string("Instruction: "));
-            write(OUTPUT_LINE, to_bitvector(instruction_IF));
+            write(OUTPUT_LINE, to_bitvector(FetchToDecodeDataIn(15 downto 0)));
             write(OUTPUT_LINE, to_string(" PCtoFetch: "));
             write(OUTPUT_LINE, to_bitvector(PCtoFetch));
             write(OUTPUT_LINE, to_string(" PCOUT: "));
             write(OUTPUT_LINE, to_bitvector(PCOutFinal_IF));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --ID WRITE
-            write(OUTPUT_LINE, to_string("Ra: "));
-            write(OUTPUT_LINE, to_bitvector(Ra_ID));
-            write(OUTPUT_LINE, to_string(" Rb: "));
-            write(OUTPUT_LINE, to_bitvector(Rb_ID));
-            write(OUTPUT_LINE, to_string(" Rc: "));
-            write(OUTPUT_LINE, to_bitvector(Rc_ID));
-            write(OUTPUT_LINE, to_string(" immediate: "));
-            write(OUTPUT_LINE, to_bitvector(immediate_ID));
-            write(OUTPUT_LINE, to_string(" condition: "));
-            write(OUTPUT_LINE, to_bitvector(condition_ID));
-            write(OUTPUT_LINE, to_string(" useComplement: "));
-            write(OUTPUT_LINE, std_logic_to_bit(useComplement_ID));
-            write(OUTPUT_LINE, to_string(" opcode: "));
-            write(OUTPUT_LINE, to_bitvector(opcode_ID));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --RF WRITE
-            write(OUTPUT_LINE, to_string("reg1Data: "));
-            write(OUTPUT_LINE, to_bitvector(reg1Data_RF));
-            write(OUTPUT_LINE, to_string(" reg2Data: "));
-            write(OUTPUT_LINE, to_bitvector(reg2Data_RF));
-            write(OUTPUT_LINE, to_string(" PC: "));
-            write(OUTPUT_LINE, to_bitvector(PC_RF));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --EX WRITE
-            write(OUTPUT_LINE, to_string("PCfrom_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(PCfrom_Ex));
-            write(OUTPUT_LINE, to_string(" PCbranchSignal_Ex: "));
-            write(OUTPUT_LINE, std_logic_to_bit(PCbranchSignal_Ex));
-            write(OUTPUT_LINE, to_string(" reg3Data_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(reg3Data_Ex));
-            write(OUTPUT_LINE, to_string(" reg3Addr_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(reg3Addr_Ex));
-            write(OUTPUT_LINE, to_string(" RAM_Address_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(RAM_Address_Ex));
-            write(OUTPUT_LINE, to_string(" RAM_writeEnable_Ex: "));
-            write(OUTPUT_LINE, std_logic_to_bit(RAM_writeEnable_Ex));
-            write(OUTPUT_LINE, to_string(" RAM_DataToWrite_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(RAM_DataToWrite_Ex));
-            write(OUTPUT_LINE, to_string(" writeBackUseRAM_orALU_Ex: "));
-            write(OUTPUT_LINE, std_logic_to_bit(writeBackUseRAM_orALU_Ex));
-            write(OUTPUT_LINE, to_string(" writeBackEnable_Ex: "));
-            write(OUTPUT_LINE, std_logic_to_bit(writeBackEnable_Ex));
-            write(OUTPUT_LINE, to_string(" stallInstructionRead_Ex: "));
-            write(OUTPUT_LINE, std_logic_to_bit(stallInstructionRead_Ex));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --MEM WRITE
-            write(OUTPUT_LINE, to_string("RAM_Address_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(RAM_Address_Ex));
-            write(OUTPUT_LINE, to_string(" RAM_DataToWrite_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(RAM_DataToWrite_Ex));
-            write(OUTPUT_LINE, to_string(" RAM_writeEnable_Ex: "));
-            write(OUTPUT_LINE, std_logic_to_bit(RAM_writeEnable_Ex));
-            write(OUTPUT_LINE, to_string(" RAM_Data_OUT_MEM: "));
-            write(OUTPUT_LINE, to_bitvector(RAM_Data_OUT_MEM));
             writeline(OUTFILE, OUTPUT_LINE);
 
             --WB WRITE
