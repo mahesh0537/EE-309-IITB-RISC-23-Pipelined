@@ -18,6 +18,9 @@ class InvalidImmediateException(ValueError):
     def __init__(self, *args: object) -> None:
         super().__init__(*args)
 
+class InvalidInstructionException(ValueError):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
 
 def getRegisterEncoding(reg: str):
     if len(reg) != 2 or reg[0].lower() != 'r':
@@ -30,6 +33,11 @@ def getRegisterEncoding(reg: str):
     if not (0 <= reg_int <= 7):
         raise UnrecognizedRegisterException(
             f'"{reg}" is not a valid register'
+        )
+    
+    if reg_int == 0:
+        raise InvalidInstructionException (
+            f'reading/writing PC is not allowed'
         )
     return reg_int
 
@@ -172,7 +180,7 @@ def main(lines=None, file=None, outfile=None, exitOnError=True):
 
     if lines is None:
         try:
-            if file is None:
+            if file is not None:
                 file_name = "<file>"
                 import sys
                 if len(sys.argv) == 1:
@@ -186,8 +194,8 @@ def main(lines=None, file=None, outfile=None, exitOnError=True):
                 file_name = sys.argv[1]
                 with open(file_name) as f:
                     lines = f.readlines()
-            else:
-                lines = file.readlines()
+            
+            # lines = file.readlines()
         except:
             print(f'"{file_name}": no such file in directory', file=outfile)
             print('** ABORT **', file=outfile)

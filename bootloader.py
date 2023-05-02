@@ -46,11 +46,21 @@ def main():
     import sys
     instructions = fileArray()
 
-    file = open(sys.argv[1])
+    try:
+        file = open(sys.argv[1])
+    except:
+        print('Couldnot open file, ABORT')
+        return
     outputfile = open('instructionMem.vhdl', 'w')
-    assembler.main(file=file, outfile=instructions)
-    instructions.data.extend(['0000001001000000', '\n']*(128-len(instructions.data)//2))
-    print(skeleton_start, end='', file=outputfile)
+    rv = assembler.main(file=file, outfile=instructions, exitOnError=False)
+    if rv:
+        outputfile = sys.stderr
+        dontPrintSkel = True
+    else:
+        dontPrintSkel = False
+        instructions.data.extend(['0000001001000000', '\n']*(128-len(instructions.data)//2))
+    if not dontPrintSkel:
+        print(skeleton_start, end='', file=outputfile)
     for i, inst in enumerate(instructions.data):
         if inst == '\n':
             pass
@@ -60,7 +70,8 @@ def main():
                 print(' '* 8, f'"{i1}", "{i2}"', end='', file=outputfile)
             else:
                 print(' '*8, f'"{i1}", "{i2}",', file=outputfile)
-    print(skeleton_end, file=outputfile)
+    if not dontPrintSkel:
+        print(skeleton_end, file=outputfile)
 
 
 if __name__ == '__main__':
