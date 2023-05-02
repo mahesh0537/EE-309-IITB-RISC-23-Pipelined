@@ -67,8 +67,12 @@ SE9to16: signExtender
 	);
 	
 with instruction(15 downto 12) select
-	immediate <= imm6_ext when "0000" | "0100" | "0101" | "1000" | "1001" | "1010",
-					 imm9_ext when "0011" | "0110" | "0111" | "1100" | "1111",
+	-- immediate <= imm6_ext when "0000" | "0100" | "0101" | "1000" | "1001" | "1010",
+	-- 				 imm9_ext when "0011" | "0110" | "0111" | "1100" | "1111",
+	-- 				 "0000000000000000" when others;
+	-- To treat SM as SW and LW as LW
+	immediate <= imm6_ext when "0000" | "0100" | "0101" | "1000" | "1001" | "1010" | "0110" | "0111",
+					 imm9_ext when "0011" | "1100" | "1111",
 					 "0000000000000000" when others;
 	
 end architecture impl;

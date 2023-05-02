@@ -65,7 +65,7 @@ begin
 				'1' & "1101", 	-- jlr
 			'0' when others;
 	
-	mem_hasArithHazard <= '1' when (mem_hasArithHazard_temp = '1') and currentOpcode = mem_opcode else '0';
+	mem_hasArithHazard <= '1' when (mem_hasArithHazard_temp = '1') and currentRegister = mem_regToWrite else '0';
 	mem_hasLoadHazard <= '1' when (currentRegister = mem_RegToWrite) and (currentOpcode = "0010") else '0';
 	mem_hasHazard <= mem_hasArithHazard or mem_hasLoadHazard;
 	
@@ -78,7 +78,7 @@ begin
 				'1' & "1100" |	-- jal
 				'1' & "1101",	-- jlr
 			'0' when others;
-	writeBack_hasHazard <= '1' when (writeBack_hasHazard_temp = '1') and currentOpcode = writeBack_opcode else '0';
+	writeBack_hasHazard <= '1' when (writeBack_hasHazard_temp = '1') and currentRegister = writeBack_RegToWrite else '0';
 	
 	
 	insertBubbleInPipeline <= '1' when (currentRegister = execute_regToWrite and execute_opcode = "0010") else '0';

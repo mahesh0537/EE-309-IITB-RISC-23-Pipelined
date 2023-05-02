@@ -100,7 +100,9 @@ begin
 					opcode = "0010"	 	-- nand rx, ry type instructions
 				) else RbValue when(
 					opcode = "0100" or	-- lw
-					opcode = "0101"		-- sw
+					opcode = "0101"	or	-- sw
+					opcode = "0110" or  -- lm
+					opcode = "0111"		-- sm
 				) else "0000000000000000"; -- lli
 				
 	inpB <=	RbValue when (
@@ -109,7 +111,10 @@ begin
 				) else immediate when (
 					opcode = "0000" or	-- adi
 					opcode = "0100" or	-- lw
-					opcode = "0101"		-- sw
+					opcode = "0101"	or	-- sw
+					opcode = "0110" or  -- lm
+					opcode = "0111"		-- sm
+
 				) else "0000000" & immediate(8 downto 0);	-- lli
 				
 	
@@ -117,7 +122,7 @@ begin
 										  (opcode = "0010")) else '0';
 	
 	with opcode select						-- adi, add, lw, sw, lli
-		m_toPerformAddOrNand <= '0' when "0000" | "0001" | "0100" | "0101" | "0011", 
+		m_toPerformAddOrNand <= '0' when "0000" | "0001" | "0100" | "0101" | "0011" | "0110" | "0111", 
 										'1' when others;
 		
 	ALU_instance: ALU

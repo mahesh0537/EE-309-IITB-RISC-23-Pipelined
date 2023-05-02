@@ -7,6 +7,25 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity instructionMemory
 -- Compiling architecture instructions of instructionMemory
 
+} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package dataTypeConverter
+-- Compiling entity pipelineDataPath
+-- Compiling architecture whatever of pipelineDataPath
+
+} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memory.vhdl {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memory.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity dataMemory
+-- Compiling architecture Behavioral of dataMemory
+
 } {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/fladReg.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -15,14 +34,18 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity flagReg
 -- Compiling architecture rtl of flagReg
 
-} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memory.vhdl {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memory.vhdl
+} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/loadStoreMultipleHandler.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/loadStoreMultipleHandler.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity memory
--- Compiling architecture Behavioral of memory
+-- Compiling entity registerFileForHandler
+-- Compiling architecture rtl of registerFileForHandler
+-- Compiling entity priorityEncoder
+-- Compiling architecture rtl of priorityEncoder
+-- Compiling entity LwSwHandler
+-- Compiling architecture rtl of LwSwHandler
 
 } {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/testBench/dataTypeConverter.vhdl
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -54,38 +77,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity ALU_wrapper
 -- Compiling architecture struct of ALU_wrapper
 
-} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd {2 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity DataHazardDetector
--- Compiling architecture impl of DataHazardDetector
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(47): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(49): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(50): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(51): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(52): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(53): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(54): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(58): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(60): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(61): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(62): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(63): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(64): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(65): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(72): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(74): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(75): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(76): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(77): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(78): (vcom-1563) Choice in selected signal assignment must be locally static.
-** Warning: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/data_hazard.vhd(79): (vcom-1563) Choice in selected signal assignment must be locally static.
--- Compiling entity dataForwarder
--- Compiling architecture impl of dataForwarder
-
 } {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/memSkelton.vhdl
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -94,14 +85,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Compiling entity memory
 -- Compiling architecture Behavioral of memory
-
-} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity writeBack
--- Compiling architecture arch of writeBack
 
 } {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/instructionFetch.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -112,6 +95,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity instructionFetch
 -- Compiling architecture impl of instructionFetch
 
+} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity loadStoreHandler
+-- Compiling architecture impl of loadStoreHandler
+
 } {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -121,14 +113,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity execStage
 -- Compiling architecture impl of execStage
 
-} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/load_store.vhd
+} {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/writeBack.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity loadStoreHandler
--- Compiling architecture impl of loadStoreHandler
+-- Compiling entity writeBack
+-- Compiling architecture arch of writeBack
 
 } {} {}} /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/register.vhd {1 {vcom -work pipeline -2002 -explicit -stats=none /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/register.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020

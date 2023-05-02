@@ -30,13 +30,13 @@ begin
 	-- the sum is calculated in the alu
 	RAM_Address <= ALU_result;
 	-- opcode = "0101" is Store instruction
-	RAM_writeEnable <= '1' when opcode = "0101" else '0';
+	RAM_writeEnable <= '1' when opcode = "0101" or opcode = "0111" else '0';
 	RAM_DataToWrite <= RaValue;
 	
 	-- whether to write the result of ALU calculation or loaded result from RAM
-	writeBackUseRAM_orALU <= '1' when opcode = "0100" else '0';
+	writeBackUseRAM_orALU <= '1' when opcode = "0100" or opcode = "0110" else '0';
 	
 	-- enable writeback when either the ALU also enables writeback 
 	-- or it is a load instruction
-	writeBackEnable <= '1' when (ALU_resutWriteEnable = '1' or opcode = "0100" or opcode = "0011") else '0';
+	writeBackEnable <= '1' when (ALU_resutWriteEnable = '1' or opcode = "0100" or opcode = "0011" or opcode = "0110") else '0';
 end architecture impl;

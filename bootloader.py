@@ -19,7 +19,7 @@ entity instructionMemory is
 end entity instructionMemory;
 
 architecture instructions of instructionMemory is
-    type instructionMemoryDataType is array (0 to 255) of std_logic_vector(7 downto 0);
+    type instructionMemoryDataType is array (0 to 2047) of std_logic_vector(7 downto 0);
     signal instructionMemoryData : instructionMemoryDataType := (
 """
 
@@ -49,7 +49,7 @@ def main():
     file = open(sys.argv[1])
     outputfile = open('instructionMem.vhdl', 'w')
     assembler.main(file=file, outfile=instructions)
-    instructions.data.extend(['0000001001000000', '\n']*(128-len(instructions.data)//2))
+    instructions.data.extend(['0000001001000000', '\n']*(1024-len(instructions.data)//2))
     print(skeleton_start, end='', file=outputfile)
     for i, inst in enumerate(instructions.data):
         if inst == '\n':

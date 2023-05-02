@@ -30,13 +30,29 @@ architecture impl of instructionFetch is
             data_out : out std_logic_vector(15 downto 0)
         );
     end component;
+
+    component LwSwHandler is
+        port(
+            clk : in std_logic;
+            rst : in std_logic;
+            instruction : in std_logic_vector(15 downto 0);
+            gotFlushed : in std_logic;
+            instructionOut : out std_logic_vector(15 downto 0);
+    
+            keepUpdatingPC : out std_logic;
+            useHandler : out std_logic
+        );
+    end component;
     signal PCnormalUpdate : std_logic_vector(15 downto 0);
+    signal signalFromHandler, signalFromHandlerForPC : std_logic := '0';
+    signal instructionFromMen : std_logic_vector(15 downto 0);
+    signal instructionFromHandler : std_logic_vector(15 downto 0);
 
 begin
     memory1 : instructionMemory port map(
         clk => clk,
         address => PCtoFetch,
-        instruction => instruction
+        instruction => instructionFromMen
     );
     mux2PC : mux2 port map(
         data0 => PCnormalUpdate,
@@ -44,5 +60,15 @@ begin
         sel => PCbranchSignal_Ex,
         data_out => PCOutFinal
     );
-    PCnormalUpdate <= std_logic_vector(unsigned(PCtoFetch) + 2) when GotBubbled = '0' else PCtoFetch;
+    LwSwHandler1 : LwSwHandler port map(
+        clk => clk,
+        rst => '0',
+        instruction => instructionFromMen,
+        gotFlushed => PCbranchSignal_Ex,
+        instructionOut => instructionFromHandler,
+        keepUpdatingPC => signalFromHandler,
+        useHandler =>signalFromHandlerForPC
+    );
+    instruction <= instructionFromHandler when signalFromHandlerForPC = '0' else instructionFromMen;
+    PCnormalUpdate <= std_logic_vector(unsigned(PCtoFetch) + 2) when (GotBubbled = '0' and signalFromHandler = '1')  else PCtoFetch;
 end impl;
