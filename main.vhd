@@ -233,6 +233,7 @@ architecture whatever of pipelineDataPath is
     signal NotGotBubble : std_logic := '1';
     signal Reg1DataAfterHz : std_logic_vector(15 downto 0) := (others => '0');
     signal Reg2DataAfterHz : std_logic_vector(15 downto 0) := (others => '0');
+    signal Reg1DataFromRF, Reg2DataFromRF : std_logic_vector(15 downto 0) := (others => '0');
 
 
 
@@ -308,7 +309,9 @@ begin
         clk => clk,
         regWrite => regWriteEnable_WB,
         reg1Addr => DecodeToRegFileDataOut(3 downto 1), reg2Addr => DecodeToRegFileDataOut( 6 downto 4), reg3Addr => reg3Addr_WB,
-        reg1Data => RegFileToExecDataIn(16 downto 1), reg2Data => RegFileToExecDataIn(32 downto 17), reg3Data => reg3Data_WB,
+        -- reg1Data => RegFileToExecDataIn(16 downto 1), reg2Data => RegFileToExecDataIn(32 downto 17), 
+        reg1Data => Reg1DataFromRF, reg2Data => Reg2DataFromRF,
+        reg3Data => reg3Data_WB,
         PC => PC_RF, PCtoRF => PCOutFinal_IF,
         reset => regResetSignal, updatePC => updatePCinRegFile, readPC => '1'
     );
@@ -316,9 +319,11 @@ begin
     dataForwarder1 : dataForwarder port map(
         currentOpcode => DecodeToRegFileDataOut(32 downto 29),
         currentRegisterA => DecodeToRegFileDataOut(3 downto 1),
-        currentRegisterAValue => RegFileToExecDataIn(16 downto 1),
+        -- currentRegisterAValue => RegFileToExecDataIn(16 downto 1),
+        currentRegisterAValue => Reg1DataFromRF,
         currentRegisterB => DecodeToRegFileDataOut( 6 downto 4),
-        currentRegisterBValue => RegFileToExecDataIn(32 downto 17),
+        -- currentRegisterBValue => RegFileToExecDataIn(32 downto 17),
+        currentRegisterBValue => Reg2DataFromRF,
 
         execute_RegToWrite => ExecToMemDataIn(19 downto 17),
         execute_WriteEnable => ExecToMemDataIn(20),
@@ -335,8 +340,10 @@ begin
         writeBack_RegValue => MemToWBDataOut(35 downto 20),
         writeBack_opcode => MemToWBDataIn(43 downto 40),
 
-        dataToUseAfterAccountingHazardsRegA => Reg1DataAfterHz,
-        dataToUseAfterAccountingHazardsRegB => Reg2DataAfterHz,
+        -- dataToUseAfterAccountingHazardsRegA => Reg1DataAfterHz,
+        -- dataToUseAfterAccountingHazardsRegB => Reg2DataAfterHz,
+        dataToUseAfterAccountingHazardsRegA => RegFileToExecDataIn(16 downto 1),
+        dataToUseAfterAccountingHazardsRegB => RegFileToExecDataIn(32 downto 17),
 
         insertBubbleInPipeline => GotBubbled
     );
@@ -344,6 +351,7 @@ begin
         opcode => RegFileToExecDataOut(64 downto 61),
         Ra => RegFileToExecDataOut(35 downto 33), Rb => RegFileToExecDataOut(38 downto 36), Rc => RegFileToExecDataOut(41 downto 39),
         RaValue => RegFileToExecDataOut(16 downto 1), RbValue => RegFileToExecDataOut(32 downto 17),
+        -- RaValue => Reg1DataAfterHz, RbValue => Reg2DataAfterHz,
         immediate => RegFileToExecDataOut(57 downto 42), condition => RegFileToExecDataOut(59 downto 58),
         useComplement => RegFileToExecDataOut(60),
         PC => RegFileToExecDataOut(80 downto 65),
@@ -443,6 +451,34 @@ begin
             write(OUTPUT_LINE, to_bitvector(PCtoFetch));
             write(OUTPUT_LINE, to_string(" PCOUT: "));
             write(OUTPUT_LINE, to_bitvector(PCOutFinal_IF));
+            writeline(OUTFILE, OUTPUT_LINE);
+
+            --Output of DataHazard
+            write(OUTPUT_LINE, to_string("DataHazard: "));
+            write(OUTPUT_LINE, to_string(" OppCode: "));
+            write(OUTPUT_LINE, to_bitvector(DecodeToRegFileDataOut(32 downto 29)));
+            write(OUTPUT_LINE, to_string(" R1: "));
+            write(OUTPUT_LINE, to_bitvector(Reg1DataAfterHz));
+            write(OUTPUT_LINE, to_string(" R2: "));
+            write(OUTPUT_LINE, to_bitvector(Reg2DataAfterHz));
+            writeline(OUTFILE, OUTPUT_LINE);
+
+            --Data Going into Ex Stage
+            -- write(OUTPUT_LINE, to_string("reg1Data_Ex: "));
+            -- write(OUTPUT_LINE, to_bitvector(RegFileToExecDataOut(32 downto 17)));
+            -- writeline(OUTFILE, OUTPUT_LINE);
+
+            --Output From Ex stage
+            write(OUTPUT_LINE, to_string("OppCode: "));
+            write(OUTPUT_LINE, to_bitvector(RegFileToExecDataOut(64 downto 61)));
+            write(OUTPUT_LINE, to_string("reg3Data_Ex: "));
+            write(OUTPUT_LINE, to_bitvector(ExecToMemDataIn(16 downto 1)));
+            writeline(OUTFILE, OUTPUT_LINE);
+            --Input to WB stage
+            write(OUTPUT_LINE, to_string("reg3Data_WB: "));
+            write(OUTPUT_LINE, to_bitvector(MemToWBDataOut(35 downto 20)));
+            write(OUTPUT_LINE, to_string(" selectSignalEx_RAM: "));
+            write(OUTPUT_LINE, std_logic_to_bit(MemToWBDataOut(17)));
             writeline(OUTFILE, OUTPUT_LINE);
 
             --WB WRITE

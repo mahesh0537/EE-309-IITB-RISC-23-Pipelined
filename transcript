@@ -1,0 +1,897 @@
+# Loading project pipelined
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 12:30:24 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break key hit
+# Break in Process line__422 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 459
+quit -sim
+# End time: 12:39:46 on May 02,2023, Elapsed time: 0:09:22
+# Errors: 0, Warnings: 10
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 12:39:55 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break key hit
+# Break in Process line__422 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 465
+quit -sim
+# End time: 12:43:40 on May 02,2023, Elapsed time: 0:03:45
+# Errors: 0, Warnings: 10
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 12:43:50 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break key hit
+# Break in Process line__422 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 472
+quit -sim
+# End time: 12:47:25 on May 02,2023, Elapsed time: 0:03:35
+# Errors: 0, Warnings: 10
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 12:47:35 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+#############  Autofindloop Analysis  ###############
+#############  Loop found at time 560 ns ###############
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_addResult @ sub-iteration 0 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:23)
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_A @ sub-iteration 0 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:21)
+#   Active process: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/line__35 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:132
+#   Active process: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/line__37 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:132
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_finalResult @ sub-iteration 2 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:25)
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_addResult @ sub-iteration 2 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:23)
+################# END OF LOOP #################
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 560 ns.
+quit -sim
+# End time: 12:48:25 on May 02,2023, Elapsed time: 0:00:50
+# Errors: 1, Warnings: 10
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd failed with 2 errors.
+# 18 compiles, 1 failed with 2 errors.
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 12:52:51 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break key hit
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+quit -sim
+# End time: 12:55:30 on May 02,2023, Elapsed time: 0:02:39
+# Errors: 0, Warnings: 11
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 12:56:07 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break key hit
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 488
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+quit -sim
+# End time: 13:04:36 on May 02,2023, Elapsed time: 0:08:29
+# Errors: 0, Warnings: 9
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 13:04:38 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# WARNING: No extended dataflow license exists
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+quit -sim
+# End time: 13:26:41 on May 02,2023, Elapsed time: 0:22:03
+# Errors: 0, Warnings: 9
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 13:26:52 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+quit -sim
+# End time: 13:41:53 on May 02,2023, Elapsed time: 0:15:01
+# Errors: 0, Warnings: 10
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 13:42:02 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 484
+run -all
+# Break key hit
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 488
+quit -sim
+# End time: 14:12:40 on May 02,2023, Elapsed time: 0:30:38
+# Errors: 0, Warnings: 10
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 14:13:23 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+#############  Autofindloop Analysis  ###############
+#############  Loop found at time 560 ns ###############
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_addResult @ sub-iteration 0 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:23)
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_finalResult @ sub-iteration 0 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:25)
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_A @ sub-iteration 0 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:21)
+#       Signal: /pipelinedatapath/execStage1/ALU_result @ sub-iteration 0 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd:107)
+#   Active process: /pipelinedatapath/execStage1/LSH_instance/line__31 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/execution.vhd:182
+#   Active process: /pipelinedatapath/execStage1/line__188 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd:364
+#   Active process: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/line__35 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:132
+#   Active process: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/line__39 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:132
+#   Active process: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/line__42 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:132
+#   Active process: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/line__37 @ sub-iteration 1
+#     Source: /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:132
+#       Signal: /pipelinedatapath/execStage1/ALU_wrapperInstance/ALU_instance/m_finalResult @ sub-iteration 2 at Value unknown (/home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/alu.vhd:25)
+################# END OF LOOP #################
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 560 ns.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 560 ns.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# Break in Process line__423 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 486
+run -all
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 560 ns.
+quit -sim
+# End time: 14:32:57 on May 02,2023, Elapsed time: 0:19:34
+# Errors: 1, Warnings: 9
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of memSkelton.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of main.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 14:33:18 on May 02,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.memory(behavioral)
+# Loading work.writeback(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /pipelinedatapath/regFile1
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 494
+run -all
+# Break key hit
+# Break in Process line__430 at /home/mahesh/projects/EE-309-IITB-RISC-23-Pipelined/main.vhd line 495
+
