@@ -17,7 +17,7 @@ architecture impl of branchPredictorALU is
 signal adderA, adderB: std_logic_vector(15 downto 0);
 signal immTimes2: std_logic_vector(15 downto 0);
 begin
-
+	-- left shift by 1 is same as multiplying by 2
 	immTimes2 <= imm(14 downto 0) & '0';
 	adderA <= PC;
 	
@@ -78,9 +78,9 @@ end architecture impl;
 
 
 library ieee;
+library work;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-library work;
 use work.branchPredictorDeclarations.all;
 
 entity branchPredictor is
@@ -145,14 +145,14 @@ begin
 		isFound => PCfound
 	);
 	
-	predictBranchTaken <= 	'0' when PCfound = '0' or (PC_index < 0) else	-- the check for < 0 is necessary for sim
+	predictBranchTaken <= 	'0' when PCfound = '0' or (PC_index < 0) else	-- the check for < 0 is necessary for simulation
 									'1' when (
 										(branchHistory(PC_index) = StronglyTaken) or
 										(branchHistory(PC_index) = WeaklyTaken)
 									) else '0';
 	
 	
-	-- logic for updating BP
+	-- logic for updating the internal states of the BP
 	
 	historyUpdateComparator: branchComparator port map(
 		PChistory => PChistory,
