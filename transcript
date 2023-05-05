@@ -2764,3 +2764,114 @@ run -all
 
 run -all
 # Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+quit -sim
+# End time: 00:15:17 on May 06,2023, Elapsed time: 0:03:28
+# Errors: 0, Warnings: 12
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of branch_hazard.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of loadStoreMultipleHandler.vhd was successful.
+# Compile of main.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of branch_predictor.vhd was successful with warnings.
+# 20 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 00:15:28 on May 06,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.branchpredictoralu(impl)
+# Loading work.branchpredictordeclarations
+# Loading work.branchpredictor(impl)
+# Loading work.branchcomparator(impl)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.lwswhandler(rtl)
+# Loading work.registerfileforhandler(rtl)
+# Loading work.priorityencoder(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.datamemory(behavioral)
+# Loading work.writeback(arch)
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+add watch  \
+sim:/pipelinedatapath/regFile1/regFileArray
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
+
+run -all
+# Break in Process line__519 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 533
