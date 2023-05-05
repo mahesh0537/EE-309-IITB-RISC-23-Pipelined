@@ -282,6 +282,7 @@ architecture whatever of pipelineDataPath is
     signal PCFromBranchHazard : std_logic_vector(15 downto 0);
     signal SignalFromBranchHazard : std_logic := '0'; --1: flush, 0: don't flush
     signal PCToBeFetched : std_logic_vector(15 downto 0) := (others => '0');
+    signal TempSignalForTesting : std_logic;
 
 
 begin
@@ -501,8 +502,9 @@ begin
     performUpdateLogic <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
     branchPredictorPrediction <= predictionForIF;
     immFromID <= DecodeToRegFileDataIn(25 downto 10);
-    -- SignalFromBranchHazard <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
-    SignalFromBranchHazard <= '0';
+    SignalFromBranchHazard <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
+    -- TempSignalForTesting <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
+    -- SignalFromBranchHazard <= '0';
     PCFromBranchHazard <= std_logic_vector(unsigned(RegFileToExecDataOut(80 downto 65)) + 2) when
                                 PCbranchSignal_Ex = '0' else PCfrom_Ex;
     PCToBeFetched <= PC_RF when SignalFromBranchHazard = '0' else PCFromBranchHazard;

@@ -134,6 +134,7 @@ architecture impl of branchPredictor is
 	signal MRUnew_PCinHistory, MRUnew_PCnotInHistory: std_logic_vector(7 downto 0);
 	signal PCupdateIndex: integer;
 	signal PCupdateFound: std_logic;
+	signal tempPredictBranchTaken : std_logic;
 begin
 
 --	PC_index_container <= findPCindex(PChistory, PCtoPredict);
@@ -145,12 +146,13 @@ begin
 		isFound => PCfound
 	);
 	
-	predictBranchTaken <= 	'0' when PCfound = '0' or (PC_index < 0) else	-- the check for < 0 is necessary for simulation
+	tempPredictBranchTaken <= 	'0' when PCfound = '0' or (PC_index < 0) else	-- the check for < 0 is necessary for simulation
 									'1' when (
 										(branchHistory(PC_index) = StronglyTaken) or
 										(branchHistory(PC_index) = WeaklyTaken)
 									) else '0';
 	
+	predictBranchTaken <= '1' when tempPredictBranchTaken = '1' and (opcode_atPCtoPredict = "1000" or opcode_atPCtoPredict = "1001" or opcode_atPCtoPredict = "1010" or opcode_atPCtoPredict = "1100") else '0';
 	
 	-- logic for updating the internal states of the BP
 	
