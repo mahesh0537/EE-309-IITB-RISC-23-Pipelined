@@ -30,12 +30,10 @@ As can be seen, the FSM has 4 states:
 
 ## Overview of each VHDL file
 
-1. **alu.vhd**
-
+1. **alu.vhd**  
 This consists of 2 entities - `ALU` and `ALU_wrapper`. The job of the ALU, like always, is to perform all the arithmetic and logical functions that might be needed of the CPU. The `ALU_Wrapper` takes care of the other signals that are relevant to the ALU, like the CF and ZF flags, value of the `compliment` and `condition` signals. It reads and modifies them, and allows the implementation of different instrcuctions like `ada`, `adc` and `adz` without difficulty.
 
-2. **branch.vhd**
-
+2. **branch.vhd**  
 The 2 entities in this file are - `conditionalBranchHandler` and `unconditionalBranchHandler`, and the role of each entity is pretty clear from their names. `conditionalBranchHandler` handles branching in case of instructions like  `beq` and `blt`. Whereas the `unconditionalBranchHandler` handles branching in the case of `jal` and `jlr`.
 
 #3. **branch_hazard.vhd**
