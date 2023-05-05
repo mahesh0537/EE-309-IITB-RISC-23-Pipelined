@@ -1,5 +1,5 @@
 lli r1, 5
-adi r2, 1
+adi r2, r2, 1
 blt r2, r1, -1
 ; first prediction might be incorrect
 ; but everything after that should be branch taken
