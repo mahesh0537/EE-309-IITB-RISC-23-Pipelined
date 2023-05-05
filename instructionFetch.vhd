@@ -51,14 +51,14 @@ architecture impl of instructionFetch is
 begin
     memory1 : instructionMemory port map(
         clk => clk,
-        address => PCtoFetch,
+        address => PCnormalUpdate,
         instruction => instructionFromMen
     );
     mux2PC : mux2 port map(
-        data0 => PCnormalUpdate,
+        data0 => PCtoFetch,
         data1 => PCfromEx,
         sel => PCbranchSignal_Ex,
-        data_out => PCOutFinal
+        data_out => PCnormalUpdate
     );
     LwSwHandler1 : LwSwHandler port map(
         clk => clk,
@@ -70,5 +70,5 @@ begin
         useHandler =>signalFromHandlerForPC
     );
     instruction <= instructionFromHandler when signalFromHandlerForPC = '0' else instructionFromMen;
-    PCnormalUpdate <= std_logic_vector(unsigned(PCtoFetch) + 2) when (GotBubbled = '0' and signalFromHandler = '1')  else PCtoFetch;
+    PCOutFinal <= std_logic_vector(unsigned(PCnormalUpdate) + 2) when (GotBubbled = '0' and signalFromHandler = '1')  else PCnormalUpdate;
 end impl;

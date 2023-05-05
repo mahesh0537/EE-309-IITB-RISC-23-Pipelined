@@ -84,7 +84,7 @@ begin
 	writeBack_hasHazard <= '1' when (writeBack_hasHazard_temp = '1') and (currentRegister = writeBack_RegToWrite) else '0';
 	
 	
-	insertBubbleInPipeline <= '1' when ((currentRegister = execute_regToWrite) and ((execute_opcode = "0100") or (execute_opcode = "0110"))) else '0';
+	insertBubbleInPipeline <= '1' when (((currentRegister = execute_regToWrite) and ((execute_opcode = "0100") or (execute_opcode = "0110"))) and execute_WriteEnable = '1') else '0';
 	
 end architecture impl;
 

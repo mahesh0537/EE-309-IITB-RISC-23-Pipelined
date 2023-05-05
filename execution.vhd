@@ -193,7 +193,7 @@ begin
 	regToWrite <= 	Rc when (ALU_useResult = '1' and (opcode = "0001" or opcode = "0010")) else -- Rtype ADD and Rtype NAND instructions
 						Ra when (ALU_useResult = '1' and opcode = "0000") else
 						Ra when (UCB_useNewPC = '1') else 
-						Ra when opcode = "0011" else "111";	-- lli instruction
+						Ra when opcode = "0011" or opcode = "0110" else "111";	-- lli instruction
 	
 	writeReg <= '1' when ALU_useResult = '1' else
 					'0' when CB_useNewPC = '1' else

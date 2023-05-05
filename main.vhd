@@ -172,6 +172,44 @@ architecture whatever of pipelineDataPath is
         );
     end component;
 
+    component branchPredictor is
+        port (
+            clk: in std_logic;
+            
+            -- opcode of the instruction
+            opcode_atPCtoPredict: in std_logic_vector(3 downto 0);
+            
+            -- this is the PC of the branch which we wish to predict
+            PCtoPredict: in std_logic_vector(15 downto 0);
+            
+            -- once the actual branch target is computed,
+            -- we have to update the internal state of the branchPredictor
+            -- this is the PC whose internals we want to update
+            PCtoUpdate: in std_logic_vector(15 downto 0);
+            
+            -- the branch target that was predict and the actual branch that was taken
+            branchResult: in std_logic;
+            performUpdate: in std_logic;
+            
+    
+            predictBranchTaken: out std_logic
+            
+    --		DB_index: in std_logic_vector(2 downto 0);
+    --		DB_out: out std_logic_vector(15 downto 0)
+        );
+    end component;
+
+
+    component branchPredictorALU is
+        port (
+            opcode: in std_logic_vector(3 downto 0);
+            PC, imm: in std_logic_vector(15 downto 0);
+            branchPredictor_prediction: in std_logic;
+            
+            branchTarget: out std_logic_vector(15 downto 0)
+        );
+    end component;
+
 
     --Signals
     signal clk : std_logic := '0';
@@ -219,14 +257,14 @@ architecture whatever of pipelineDataPath is
     signal resetFlags : std_logic := '0';
 
 
-    signal randomSignal : std_logic := '0';
+    -- signal randomSignal : std_logic := '0';
 
 
     --Signals for Pipeline Registers
     signal FetchToDecodeDataIn, FetchToDecodeDataOut : std_logic_vector(31 downto 0) := (others => '0');
-    signal DecodeToRegFileDataIn, DecodeToRegFileDataOut : std_logic_vector(48 downto 0) := (others => '0');
-    signal RegFileToExecDataIn, RegFileToExecDataOut : std_logic_vector(80 downto 0) := (others => '0');
-    signal ExecToMemDataIn, ExecToMemDataOut : std_logic_vector(60 downto 0) := (others => '0');
+    signal DecodeToRegFileDataIn, DecodeToRegFileDataOut : std_logic_vector(49 downto 0) := (others => '0');
+    signal RegFileToExecDataIn, RegFileToExecDataOut : std_logic_vector(81 downto 0) := (others => '0');
+    signal ExecToMemDataIn, ExecToMemDataOut : std_logic_vector(61 downto 0) := (others => '0');
     signal MemToWBDataIn, MemToWBDataOut : std_logic_vector(43 downto 0) := (others => '0');
     signal GotBubbled : std_logic := '0';
     signal GotFlushed : std_logic := '0';
@@ -235,9 +273,38 @@ architecture whatever of pipelineDataPath is
     signal Reg2DataAfterHz : std_logic_vector(15 downto 0) := (others => '0');
     signal Reg1DataFromRF, Reg2DataFromRF : std_logic_vector(15 downto 0) := (others => '0');
 
+    --Branch Predictor integration
+    signal opcodeFromIF, opcodeFromID : std_logic_vector(3 downto 0);
+    signal immFromID, PCFromIF, PCFromID, PCFromEx : std_logic_vector(15 downto 0) := (others => '0');
+    signal branchPredictorPrediction : std_logic; -- 0: continuing with +2, 1: make changes, will get resolved @ALU
+    signal PCOutFromBP : std_logic_vector(15 downto 0) := (others => '0'); --BP: branch predictor
+    signal branchResultFromEx, performUpdateLogic, predictionForIF : std_logic;
+    signal PCFromBranchHazard : std_logic_vector(15 downto 0);
+    signal SignalFromBranchHazard : std_logic := '0'; --1: flush, 0: don't flush
+    signal PCToBeFetched : std_logic_vector(15 downto 0) := (others => '0');
 
 
 begin
+    branchPredictorALU1 : branchPredictorALU port map(
+            opcode => opcodeFromID,
+            PC => PCFromID,
+            imm => immFromID,
+            branchPredictor_prediction => branchPredictorPrediction,
+            branchTarget => PCOutFromBP
+        );
+
+    -- connecting to ID stage and Ex stage
+    branchPredictor1 : branchPredictor port map(
+            clk => clk,
+            opcode_atPCtoPredict => opcodeFromID,
+            PCtoPredict => PCFromID,
+            --From Ex
+            PCtoUpdate => PCFromEx,
+            branchResult => branchResultFromEx,
+            performUpdate => performUpdateLogic,
+            --To be used by branchPredictorALU to compute next branch
+            predictBranchTaken => predictionForIF
+        );
     IF_ID_Reg : NBitRegister
         generic map(N => 32, default => '0')
         port map(
@@ -249,7 +316,7 @@ begin
         );
 
     ID_Reg_Reg: NBitRegister
-        generic map(N => 49, default => '0')
+        generic map(N => 50, default => '0')
         port map(
             dataIn => DecodeToRegFileDataIn,
             writeEnable => NotGotBubble,
@@ -258,7 +325,7 @@ begin
             dataOut => DecodeToRegFileDataOut
         );
     Reg_Ex_Reg: NBitRegister
-        generic map(N => 81, default => '0')
+        generic map(N => 82, default => '0')
         port map(
             dataIn => RegFileToExecDataIn,
             writeEnable => NotGotBubble,
@@ -267,7 +334,7 @@ begin
             dataOut => RegFileToExecDataOut
         );
     Ex_mem_Reg: NBitRegister
-        generic map(N => 61, default => '0')
+        generic map(N => 62, default => '0')
         port map(
             dataIn => ExecToMemDataIn,
             writeEnable => '1',
@@ -291,10 +358,10 @@ begin
     );
     instructionFetch1 : instructionFetch port map(
         clk => clk,
-        PCtoFetch => PC_RF,
+        PCtoFetch => PCToBeFetched,
         instruction => FetchToDecodeDataIn(15 downto 0),
-        PCfromEx => PCfrom_Ex,
-        PCbranchSignal_Ex => PCbranchSignal_Ex,
+        PCfromEx => PCFromBranchHazard,
+        PCbranchSignal_Ex => SignalFromBranchHazard,
         PCOutFinal => FetchToDecodeDataIn(31 downto 16),
         GotBubbled => GotBubbled
     );
@@ -394,6 +461,7 @@ begin
     RegFileToExecDataIn(0) <= '1' when GotFlushed = '1' else DecodeToRegFileDataOut(0);
     --Decode Stage linking
     DecodeToRegFileDataIn(48 downto 33) <= FetchToDecodeDataOut(31 downto 16); --PC
+    DecodeToRegFileDataIn(49) <= predictionForIF;
     --RgeFil Stage linking
     RegFileToExecDataIn(35 downto 33) <= DecodeToRegFileDataOut(3 downto 1); --Reg1Addr
     RegFileToExecDataIn(38 downto 36) <= DecodeToRegFileDataOut(6 downto 4); --Reg2Addr
@@ -403,9 +471,11 @@ begin
     RegFileToExecDataIn(60) <= DecodeToRegFileDataOut(28); --UseComplement
     RegFileToExecDataIn(64 downto 61) <= DecodeToRegFileDataOut(32 downto 29); --Opcode
     RegFileToExecDataIn(80 downto 65) <= DecodeToRegFileDataOut(48 downto 33); --PC
+    RegFileToExecDataIn(81) <= DecodeToRegFileDataOut(49);
     --Exec Stage linking
     ExecToMemDataIn(0) <= RegFileToExecDataOut(0);
     ExecToMemDataIn(60 downto 57) <= RegFileToExecDataOut(64 downto 61); --Opcode
+    ExecToMemDataIn(61) <= RegFileToExecDataOut(81);
 
 
     --Mem Stage linking
@@ -421,6 +491,23 @@ begin
     NotGotBubble <= not GotBubbled;
 
     PCOutFinal_IF <= FetchToDecodeDataIn(31 downto 16);
+
+    --BP Linking
+    opcodeFromID <= DecodeToRegFileDataIn(32 downto 29);
+    PCFromID <= FetchToDecodeDataOut(31 downto 16);
+    -- PCFromEx <= PCfrom_Ex;
+    PCFromEx <= RegFileToExecDataOut(80 downto 65);
+    branchResultFromEx <= PCbranchSignal_Ex;
+    performUpdateLogic <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
+    branchPredictorPrediction <= predictionForIF;
+    immFromID <= DecodeToRegFileDataIn(25 downto 10);
+    -- SignalFromBranchHazard <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
+    SignalFromBranchHazard <= '0';
+    PCFromBranchHazard <= std_logic_vector(unsigned(RegFileToExecDataOut(80 downto 65)) + 2) when
+                                PCbranchSignal_Ex = '0' else PCfrom_Ex;
+    PCToBeFetched <= PC_RF when SignalFromBranchHazard = '0' else PCFromBranchHazard;
+
+
 
 
 
@@ -439,56 +526,6 @@ begin
             i := i + 1;
             -- PCtoFetch <= PCOutFinal_IF;
             updatePCinRegFile <= not stallInstructionRead_Ex;
-            --IF WRITE
-            write(OUTPUT_LINE, to_string(" ______________________________________________________ "));
-            writeline(OUTFILE, OUTPUT_LINE);
-            write(OUTPUT_LINE, to_string(" CLOCK: "));
-            write(OUTPUT_LINE, std_logic_to_bit(clk));
-            writeline(OUTFILE, OUTPUT_LINE);
-            write(OUTPUT_LINE, to_string("Instruction: "));
-            write(OUTPUT_LINE, to_bitvector(FetchToDecodeDataIn(15 downto 0)));
-            write(OUTPUT_LINE, to_string(" PCtoFetch: "));
-            write(OUTPUT_LINE, to_bitvector(PCtoFetch));
-            write(OUTPUT_LINE, to_string(" PCOUT: "));
-            write(OUTPUT_LINE, to_bitvector(PCOutFinal_IF));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --Output of DataHazard
-            write(OUTPUT_LINE, to_string("DataHazard: "));
-            write(OUTPUT_LINE, to_string(" OppCode: "));
-            write(OUTPUT_LINE, to_bitvector(DecodeToRegFileDataOut(32 downto 29)));
-            write(OUTPUT_LINE, to_string(" R1: "));
-            write(OUTPUT_LINE, to_bitvector(Reg1DataAfterHz));
-            write(OUTPUT_LINE, to_string(" R2: "));
-            write(OUTPUT_LINE, to_bitvector(Reg2DataAfterHz));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --Data Going into Ex Stage
-            -- write(OUTPUT_LINE, to_string("reg1Data_Ex: "));
-            -- write(OUTPUT_LINE, to_bitvector(RegFileToExecDataOut(32 downto 17)));
-            -- writeline(OUTFILE, OUTPUT_LINE);
-
-            --Output From Ex stage
-            write(OUTPUT_LINE, to_string("OppCode: "));
-            write(OUTPUT_LINE, to_bitvector(RegFileToExecDataOut(64 downto 61)));
-            write(OUTPUT_LINE, to_string("reg3Data_Ex: "));
-            write(OUTPUT_LINE, to_bitvector(ExecToMemDataIn(16 downto 1)));
-            writeline(OUTFILE, OUTPUT_LINE);
-            --Input to WB stage
-            write(OUTPUT_LINE, to_string("reg3Data_WB: "));
-            write(OUTPUT_LINE, to_bitvector(MemToWBDataOut(35 downto 20)));
-            write(OUTPUT_LINE, to_string(" selectSignalEx_RAM: "));
-            write(OUTPUT_LINE, std_logic_to_bit(MemToWBDataOut(17)));
-            writeline(OUTFILE, OUTPUT_LINE);
-
-            --WB WRITE
-            write(OUTPUT_LINE, to_string("reg3Data_WB: "));
-            write(OUTPUT_LINE, to_bitvector(reg3Data_WB));
-            write(OUTPUT_LINE, to_string(" reg3Addr_WB: "));
-            write(OUTPUT_LINE, to_bitvector(reg3Addr_WB));
-            write(OUTPUT_LINE, to_string(" writeBackEnable_WB: "));
-            write(OUTPUT_LINE, std_logic_to_bit(regWriteEnable_WB));
-            writeline(OUTFILE, OUTPUT_LINE);
             clk <= not clk;
             wait for 40 ns;
         end loop;
