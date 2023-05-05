@@ -15,7 +15,7 @@ The ISA consists of a total of 14 instructions, which have been divided into 3 f
 
 ## Algorithms implemented
 
-### Data hazard handling
+### Data hazard handling \
 The same algorithm as has been taught in the course EE309 has been implemented here. We utilize data forwarding to deal with all hazards but the one caused by immediate dependency load instructions. In the case of an immediate dependency load instruction, the pipeline is stalled for one cycle - the load instruction is allowed to move ahead into the pipeline, while the previous instruction stays stationary for one cycle. 
 
 ### Branch prediction
