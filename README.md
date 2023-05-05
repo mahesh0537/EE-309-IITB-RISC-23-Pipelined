@@ -30,53 +30,56 @@ As can be seen, the FSM has 4 states:
 
 ## Overview of each VHDL file
 
-1. **alu.vhd**
+#1. **alu.vhd**
 This consists of 2 entities - `ALU` and `ALU_wrapper`. The job of the ALU, like always, is to perform all the arithmetic and logical functions that might be needed of the CPU. The `ALU_Wrapper` takes care of the other signals that are relevant to the ALU, like the CF and ZF flags, value of the `compliment` and `condition` signals. It reads and modifies them, and allows the implementation of different instrcuctions like `ada`, `adc` and `adz` without difficulty.
-2. **branch.vhd**
+
+#2. **branch.vhd**
 The 2 entities in this file are - `conditionalBranchHandler` and `unconditionalBranchHandler`, and the role of each entity is pretty clear from their names. `conditionalBranchHandler` handles branching in case of instructions like  `beq` and `blt`. Whereas the `unconditionalBranchHandler` handles branching in the case of `jal` and `jlr`.
-3. **branch_hazard.vhd**
 
+#3. **branch_hazard.vhd**
 Has a single entity, which tells if the predicted branch and the branch actually take are the same or not, thereby detecting hazards.
-4. **branch_predictor.vhd**
 
+#4. **branch_predictor.vhd**
 Contains 3 entities - `branchPredictorALU`, `branchComparator` and `branchPredictor`. The `branchPredictorALU` is a specific ALU with adders and shifters for pre-calculating the new program counter values. `branchComparator` is responsible for finding the history of the current branch, if at all it exists, and allow the updation of its history. `branchPredictor` performs the branch prediction algorithm.
-5. **data_hazard.vhd**
 
+#5. **data_hazard.vhd**
 Consists of 2 entities - `DataHazardDetector` and `dataForwarder`. `DataHazardDetector` is implemented as has been taught in the course, with arithmetic hazards being taken care of by data forwarding. The immediate dependency data loading hazards are handled by pausing the pipeline upto the execution of the load instruction. `dataForwarder` just implements the data forwarding algorithm. 
-6. **execution.vhd**
+
+#6. **execution.vhd**
 There is only 1 large entity here named `execStage`. It handles the execution of all the instructions, based on the instruction type. Corresponds to the 4th stage of the pipeline.
-7. **flagReg.vhd**
 
+#7. **flagReg.vhd**
 Singular entity named `flagReg` which handles the 1 bit registers storing CFlag and ZFlag.
-8. **instructionFetch.vhd**
+
+#8. **instructionFetch.vhd**
 Consists of 1 entity named `instructionFetch`. Responsible for obtaining the next instruction to be executed from the memory. Corresponds to the 1st stage of the pipeline.
-9. **instructionMem.vhd**
 
+#9. **instructionMem.vhd**
 Singular entity named `instructionMemory` which stores all the instructions into a separate memory. This is being done since we are using the Harvard architecture of a computer.
-10. **instructionMemSkeleton.vhd**
 
+#10. **instructionMemSkeleton.vhd**
 Template file used to generate instructionMem.vhd using the python script bootloader.py. This file is not used in the final compilation.
-11. **instruction_decode.vhd**
 
+#11. **instruction_decode.vhd**
 The only entity in this file is named `instructionDecoder`. It decodes all the instructions inputted into the pipeline and converts them into signals which are propagated in the pipeline. Corresponds to the 2nd stage of the pipeline.
-12. **loadStoreMultipleHandler.vhd**
 
+#12. **loadStoreMultipleHandler.vhd**
 Consists of `registerFileHandler`, `priorityEncoder`, `LwSwHandler`
-11. **load_store.vhd**
 
+#11. **load_store.vhd**
 Consists of 1 entity called `loadStoreHandler` which handles the load and store instructions `LW` and `SW` respectively in the ISA.
-12. **main.vhd**
 
+#12. **main.vhd**
 Consists of one entity - `pipelineDataPath` which creates all the pipeline registers. The rest of the code initializes and connects all the component blocks, providing us with a working processor. 
-13. **memory.vhdl**
 
+#13. **memory.vhdl**
 Singular entity named `memory` which implements a 64 kB memory. The memory is byte addressable.
-14. **register.vhd**
 
+#14. **register.vhd**
 Singular entity named `NBitRegister`. As the name suggests, allows the implementation of a N-bit register. 
-15. **sign_extenders.vhd**
 
+#15. **sign_extenders.vhd**
 Singular entity named `signExtender`. Performs sign extension for immediate values.
-16. **writeBack.vhd**
 
+#16. **writeBack.vhd**
 Single entity named `writeBack` which is responsible for generating the register write back signals for the processor. 
