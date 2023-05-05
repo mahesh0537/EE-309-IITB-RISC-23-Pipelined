@@ -51,7 +51,8 @@ begin
 				'1' & "0010" |	-- nands
 				'1' & "0011" |	-- lli
 				'1' & "1100" |	-- jal
-				'1' & "1101",	-- jlr
+				'1' & "1101" |	-- jlr
+				'1' & "0111",	-- lm
 			'0' when others;
 	execute_hasHazard <= '1' when (execute_hasHazard_temp = '1') and (execute_RegToWrite = currentRegister) else '0';
 	
@@ -62,11 +63,12 @@ begin
 				'1' & "0010" |	-- nands
 				'1' & "0011" |	-- lli
 				'1' & "1100" |	-- jal
-				'1' & "1101", 	-- jlr
+				'1' & "1101" |	-- jlr
+				'1' & "0111", 	-- lm
 			'0' when others;
 	
-	mem_hasArithHazard <= '1' when (mem_hasArithHazard_temp = '1') and currentRegister = mem_regToWrite else '0';
-	mem_hasLoadHazard <= '1' when (currentRegister = mem_RegToWrite) and (currentOpcode = "0010") else '0';
+	mem_hasArithHazard <= '1' when (mem_hasArithHazard_temp = '1') and (currentRegister = mem_regToWrite) else '0';
+	mem_hasLoadHazard <= '1' when (currentRegister = mem_RegToWrite) and ((mem_opcode = "0100") or (mem_opcode = "0110")) else '0';
 	mem_hasHazard <= mem_hasArithHazard or mem_hasLoadHazard;
 	
 	with  writeBack_WriteEnable & writeBack_opcode select
@@ -76,12 +78,13 @@ begin
 				'1' & "0010" |	-- nands
 				'1' & "0011" |	-- lli
 				'1' & "1100" |	-- jal
-				'1' & "1101",	-- jlr
+				'1' & "1101" |	-- jlr
+				'1' & "0111",	-- lm
 			'0' when others;
-	writeBack_hasHazard <= '1' when (writeBack_hasHazard_temp = '1') and currentRegister = writeBack_RegToWrite else '0';
+	writeBack_hasHazard <= '1' when (writeBack_hasHazard_temp = '1') and (currentRegister = writeBack_RegToWrite) else '0';
 	
 	
-	insertBubbleInPipeline <= '1' when (currentRegister = execute_regToWrite and execute_opcode = "0010") else '0';
+	insertBubbleInPipeline <= '1' when ((currentRegister = execute_regToWrite) and ((execute_opcode = "0100") or (execute_opcode = "0110"))) else '0';
 	
 end architecture impl;
 
