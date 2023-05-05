@@ -5,3 +5,5 @@ blt r2, r1, -1
 ; but everything after that should be branch taken
 ; until iteration number 6, where the loop is
 ; supposed to end
+; r1 = 0b101
+; r2 = 0b101
