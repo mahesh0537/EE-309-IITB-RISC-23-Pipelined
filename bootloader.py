@@ -19,7 +19,7 @@ entity instructionMemory is
 end entity instructionMemory;
 
 architecture instructions of instructionMemory is
-    type instructionMemoryDataType is array (0 to 2047) of std_logic_vector(7 downto 0);
+    type instructionMemoryDataType is array (0 to 255) of std_logic_vector(7 downto 0);
     signal instructionMemoryData : instructionMemoryDataType := (
 """
 
@@ -32,35 +32,50 @@ instruction(7 downto 0) <= instructionMemoryData(to_integer(unsigned(address))+1
 end architecture instructions;
 """
 
-class fileArray:
-    def __init__(self) -> None:
-        self.data = []
-
-    def write(self, data):
-        self.data.append(data)
-    
-    def flush(self):
-        pass
 
 def main():
-    import sys
-    instructions = fileArray()
 
-    file = open(sys.argv[1])
     outputfile = open('instructionMem.vhdl', 'w')
-    assembler.main(file=file, outfile=instructions)
-    instructions.data.extend(['0000001001000000', '\n']*(1024-len(instructions.data)//2))
-    print(skeleton_start, end='', file=outputfile)
-    for i, inst in enumerate(instructions.data):
-        if inst == '\n':
-            pass
+
+    import sys
+    try:
+        import sys
+        if len(sys.argv) == 1:
+            print('no input file specified')
+            print('usage: `python assembler.py <file>`')
+            print('** ABORT **')
+            return 1
+        file_name = sys.argv[1]
+        with open(file_name) as f:
+            lines = f.readlines()
+    except:
+        print(f'"{file_name}": no such file in directory')
+        print('** ABORT **')
+        return 2
+    
+    instructions = []
+
+    for i, line in enumerate(lines):
+        line = line.split(';')[0].strip()
+        if line:
+            try:
+                instructions.append(''.join(assembler.assemble(line)))
+            except ValueError as e:
+                print(f'In file "{file_name}": ERROR on line {i+1}: {e.args[0]}')
+                print('** ABORT **')
+                return 1
+    
+    instructions.extend([''.join(assembler.assemble('beq r1, r2, 1'))] * (128 - len(instructions)))
+    print(skeleton_start, file=outputfile)
+    for i, inst in enumerate(instructions):
+        if i == len(instructions) -1 :
+            print(f'\t\t"{inst[:8]}", "{inst[8:]}"', file=outputfile)
         else:
-            i1, i2 = inst[0:8], inst[8:]
-            if i == len(instructions.data)-2:
-                print(' '* 8, f'"{i1}", "{i2}"', end='', file=outputfile)
-            else:
-                print(' '*8, f'"{i1}", "{i2}",', file=outputfile)
+            print(f'\t\t"{inst[:8]}", "{inst[8:]}",', file=outputfile)
     print(skeleton_end, file=outputfile)
+    
+
+    return 0
 
 
 if __name__ == '__main__':

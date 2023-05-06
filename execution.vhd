@@ -43,7 +43,8 @@ entity execStage is
 		writeBackUseRAM_orALU: out std_logic;
 		writeBackEnable: out std_logic;
 		
-		stallInstructionRead: out std_logic
+		stallInstructionRead: out std_logic;
+		beenFlushed: in std_logic
 	);
 end entity execStage;
 
@@ -195,10 +196,10 @@ begin
 						Ra when (UCB_useNewPC = '1') else 
 						Ra when opcode = "0011" or opcode = "0110" else "111";	-- lli instruction
 	
-	writeReg <= '1' when ALU_useResult = '1' else
+	writeReg <= '1' when ALU_useResult = '1' and beenFlushed = '0' else
 					'0' when CB_useNewPC = '1' else
-					UCB_useNewRa when UCB_useNewPC = '1' else
-					'1' when opcode = "0011" else '0';
+					UCB_useNewRa when UCB_useNewPC = '1' and beenFlushed = '0' else
+					'1' when opcode = "0011" and beenFlushed = '0' else '0';
 	
 	PC_new <= 	"0000000000000000" when ALU_useResult = '1' else
 					CB_PC_new when CB_useNewPC = '1' else

@@ -119,7 +119,8 @@ architecture whatever of pipelineDataPath is
             writeBackUseRAM_orALU: out std_logic;
             writeBackEnable: out std_logic;
             
-            stallInstructionRead: out std_logic
+            stallInstructionRead: out std_logic;
+            beenFlushed: in std_logic
         );
     end component;
 
@@ -435,7 +436,8 @@ begin
         RAM_DataToWrite => ExecToMemDataIn(53 downto 38),
         writeBackUseRAM_orALU => ExecToMemDataIn(54),
         writeBackEnable => ExecToMemDataIn(55),
-        stallInstructionRead => ExecToMemDataIn(56)
+        stallInstructionRead => ExecToMemDataIn(56),
+        beenFlushed => RegFileToExecDataOut(0)
     );
     RAM1 : dataMemory port map(
         RAM_Address => ExecToMemDataOut(36 downto 21),
@@ -512,7 +514,7 @@ begin
     --                             PCbranchSignal_Ex = '0' else PCfrom_Ex;
     PCFromBranchHazard <= std_logic_vector(unsigned(RegFileToExecDataOut(80 downto 65)) + 2) when
                                 PCbranchSignal_Ex = '0' else PCfrom_Ex;
-    PCToBeFetched <= PCOutFromBP when (SignalFromBranchHazard = '0' and branchPredictorPrediction = '1') else PC_RF when SignalFromBranchHazard = '0' else PCFromBranchHazard;
+    PCToBeFetched <= PCOutFromBP when (SignalFromBranchHazard = '0' and branchPredictorPrediction = '1') else PC_RF when SignalFromBranchHazard = '0' or RegFileToExecDataOut(0) = '1' else PCFromBranchHazard;
 
 
 

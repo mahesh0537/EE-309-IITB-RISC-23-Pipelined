@@ -2278,3 +2278,883 @@ run -all
 # Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
 run -all
 # Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+quit -sim
+# End time: 16:01:43 on May 06,2023, Elapsed time: 0:24:18
+# Errors: 0, Warnings: 12
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of branch_hazard.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of loadStoreMultipleHandler.vhd was successful.
+# Compile of main.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of branch_predictor.vhd was successful with warnings.
+# 20 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 16:01:53 on May 06,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.branchpredictoralu(impl)
+# Loading work.branchpredictordeclarations
+# Loading work.branchpredictor(impl)
+# Loading work.branchcomparator(impl)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.lwswhandler(rtl)
+# Loading work.registerfileforhandler(rtl)
+# Loading work.priorityencoder(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.datamemory(behavioral)
+# Loading work.writeback(arch)
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+add watch  \
+sim:/pipelinedatapath/SignalFromBranchHazard
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+add watch  \
+sim:/pipelinedatapath/regFile1/regFileArray
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+
+
+
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+quit -sim
+# End time: 16:06:51 on May 06,2023, Elapsed time: 0:04:58
+# Errors: 0, Warnings: 11
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of branch_hazard.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of loadStoreMultipleHandler.vhd was successful.
+# Compile of main.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of branch_predictor.vhd was successful with warnings.
+# 20 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 16:07:44 on May 06,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.branchpredictoralu(impl)
+# Loading work.branchpredictordeclarations
+# Loading work.branchpredictor(impl)
+# Loading work.branchcomparator(impl)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.lwswhandler(rtl)
+# Loading work.registerfileforhandler(rtl)
+# Loading work.priorityencoder(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.datamemory(behavioral)
+# Loading work.writeback(arch)
+add watch  \
+sim:/pipelinedatapath/regFile1/regFileArray
+add watch  \
+sim:/pipelinedatapath/SignalFromBranchHazard
+add watch  \
+sim:/pipelinedatapath/PCToBeFetched
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+restart -f
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+add watch  \
+sim:/pipelinedatapath/writeBack1/writeSignalOut \
+sim:/pipelinedatapath/writeBack1/writeDataOUT \
+sim:/pipelinedatapath/writeBack1/writeAddressOUT
+add watch  \
+sim:/pipelinedatapath/execStage1/opcode
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+run -all
+# Break in Process line__524 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 538
+quit -sim
+# End time: 17:04:21 on May 06,2023, Elapsed time: 0:56:37
+# Errors: 0, Warnings: 11
+# Compile of alu.vhd was successful.
+# Compile of branch.vhd was successful.
+# Compile of branch_hazard.vhd was successful.
+# Compile of data_hazard.vhd was successful with warnings.
+# Compile of execution.vhd was successful.
+# Compile of fladReg.vhd was successful.
+# Compile of instruction_decode.vhd was successful.
+# Compile of instructionFetch.vhd was successful.
+# Compile of instructionMem.vhdl was successful.
+# Compile of load_store.vhd was successful.
+# Compile of loadStoreMultipleHandler.vhd was successful.
+# Compile of main.vhd was successful.
+# Compile of memory.vhdl was successful.
+# Compile of mux2.vhd was successful.
+# Compile of register.vhd was successful.
+# Compile of registerFile.vhdl was successful.
+# Compile of sign_extenders.vhd was successful.
+# Compile of writeBack.vhd was successful.
+# Compile of dataTypeConverter.vhdl was successful.
+# Compile of branch_predictor.vhd was successful with warnings.
+# 20 compiles, 0 failed with no errors.
+vsim work.pipelinedatapath
+# vsim work.pipelinedatapath 
+# Start time: 17:04:31 on May 06,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.datatypeconverter(body)
+# Loading work.pipelinedatapath(whatever)
+# Loading work.branchpredictoralu(impl)
+# Loading work.branchpredictordeclarations
+# Loading work.branchpredictor(impl)
+# Loading work.branchcomparator(impl)
+# Loading work.nbitregister(impl)
+# Loading work.flagreg(rtl)
+# Loading work.instructionfetch(impl)
+# Loading work.instructionmemory(instructions)
+# Loading work.mux2(rtl)
+# Loading work.lwswhandler(rtl)
+# Loading work.registerfileforhandler(rtl)
+# Loading work.priorityencoder(rtl)
+# Loading work.instructiondecoder(impl)
+# Loading work.signextender(struct)
+# Loading work.regfile(regfile_arch)
+# Loading work.dataforwarder(impl)
+# Loading work.datahazarddetector(impl)
+# Loading work.execstage(impl)
+# Loading work.alu_wrapper(struct)
+# Loading work.alu(struct)
+# Loading work.unconditionalbranchhandler(impl)
+# Loading work.conditionalbranchhandler(impl)
+# Loading work.loadstorehandler(impl)
+# Loading work.datamemory(behavioral)
+# Loading work.writeback(arch)
+add watch  \
+sim:/pipelinedatapath/execStage1/opcode
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+add watch  \
+sim:/pipelinedatapath/SignalFromBranchHazard
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+add watch  \
+sim:/pipelinedatapath/regFile1/regFileArray
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /pipelinedatapath/instructionFetch1/memory1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /pipelinedatapath/RAM1
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540
+run -all
+# Break in Process line__526 at /home/mahesh/projects/bin/EE-309-IITB-RISC-23-Pipelined/main.vhd line 540

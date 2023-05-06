@@ -18,6 +18,9 @@ class InvalidImmediateException(ValueError):
     def __init__(self, *args: object) -> None:
         super().__init__(*args)
 
+class InvalidInstructionException(ValueError):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
 
 def getRegisterEncoding(reg: str):
     if len(reg) != 2 or reg[0].lower() != 'r':
@@ -30,6 +33,11 @@ def getRegisterEncoding(reg: str):
     if not (0 <= reg_int <= 7):
         raise UnrecognizedRegisterException(
             f'"{reg}" is not a valid register'
+        )
+    
+    if reg_int == 0:
+        raise InvalidInstructionException (
+            f'reading/writing PC is not allowed'
         )
     return reg_int
 
@@ -164,53 +172,31 @@ def convertToBinary(num: int, size: int):
 
 
 
-def main(lines=None, file=None, outfile=None, exitOnError=True):
-
-    if outfile is None:
+def main():
+    try:
         import sys
-        outfile = sys.stdout
-
-    if lines is None:
-        try:
-            if file is None:
-                file_name = "<file>"
-                import sys
-                if len(sys.argv) == 1:
-                    print('no input file specified', file=outfile)
-                    print('usage: `python assembler.py <file>`', file=outfile)
-                    print('** ABORT **', file=outfile)
-                    if exitOnError:
-                        exit(1)
-                    else:
-                        return 1
-                file_name = sys.argv[1]
-                with open(file_name) as f:
-                    lines = f.readlines()
-            else:
-                lines = file.readlines()
-        except:
-            print(f'"{file_name}": no such file in directory', file=outfile)
-            print('** ABORT **', file=outfile)
-            if exitOnError:
-                exit(2)
-            else:
-                return 2
-    else:
-        lines = lines.split('\n')
-        file_name = "<string>"
+        if len(sys.argv) == 1:
+            print('no input file specified')
+            print('usage: `python assembler.py <file>`')
+            print('** ABORT **')
+            return 1
+        file_name = sys.argv[1]
+        with open(file_name) as f:
+            lines = f.readlines()
+    except:
+        print(f'"{file_name}": no such file in directory')
+        print('** ABORT **')
+        return 2
     
     for i, line in enumerate(lines):
         line = line.split(';')[0].strip()
         if line:
             try:
-                print(''.join(assemble(line)), file=outfile)
+                print(''.join(assemble(line)))
             except ValueError as e:
-                print(f'In file "{file_name}": ERROR on line {i+1}: {e.args[0]}', file=outfile)
-                print('** ABORT **', file=outfile)
-                if exitOnError:
-                    exit(1)
-                else:
-                    return 1
+                print(f'In file "{file_name}": ERROR on line {i+1}: {e.args[0]}')
+                print('** ABORT **')
+                return 1
     return 0
 
 if __name__ == '__main__':
