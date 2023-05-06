@@ -29,10 +29,15 @@ begin
 		((opcode = "1010") and (m_Ra <= m_Rb))
 	) else m_branchNotTakenResult;
 	
+	-- useNewPc <= '1' when (
+	-- 	(opcode = "1000") or
+	-- 	(opcode = "1001") or
+	-- 	(opcode = "1010")
+	-- ) else '0';
 	useNewPc <= '1' when (
-		(opcode = "1000") or
-		(opcode = "1001") or
-		(opcode = "1010")
+	((opcode = "1000") and (m_Ra = m_Rb)) or
+	((opcode = "1001") and (m_Ra < m_Rb)) or
+	((opcode = "1010") and (m_Ra <= m_Rb))
 	) else '0';
 
 end architecture impl;

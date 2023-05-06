@@ -18,10 +18,10 @@ end entity instructionMemory;
 architecture instructions of instructionMemory is
     type instructionMemoryDataType is array (0 to 2047) of std_logic_vector(7 downto 0);
     signal instructionMemoryData : instructionMemoryDataType := (
-         "00110010", "00001010",
-         "10000010", "10000001",
-         "00010010", "10011100",
-         "00000010", "01000000",
+         "00110010", "00000101",
+         "00000100", "10000001",
+         "10010100", "01111111",
+         "00111010", "00001010",
          "00000010", "01000000",
          "00000010", "01000000",
          "00000010", "01000000",

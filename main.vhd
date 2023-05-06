@@ -261,7 +261,7 @@ architecture whatever of pipelineDataPath is
 
 
     --Signals for Pipeline Registers
-    signal FetchToDecodeDataIn, FetchToDecodeDataOut : std_logic_vector(31 downto 0) := (others => '0');
+    signal FetchToDecodeDataIn, FetchToDecodeDataOut : std_logic_vector(47 downto 0) := (others => '0');
     signal DecodeToRegFileDataIn, DecodeToRegFileDataOut : std_logic_vector(49 downto 0) := (others => '0');
     signal RegFileToExecDataIn, RegFileToExecDataOut : std_logic_vector(81 downto 0) := (others => '0');
     signal ExecToMemDataIn, ExecToMemDataOut : std_logic_vector(61 downto 0) := (others => '0');
@@ -275,7 +275,7 @@ architecture whatever of pipelineDataPath is
 
     --Branch Predictor integration
     signal opcodeFromIF, opcodeFromID : std_logic_vector(3 downto 0);
-    signal immFromID, PCFromIF, PCFromID, PCFromEx : std_logic_vector(15 downto 0) := (others => '0');
+    signal immFromID, PCFromIF, PCFromID, PCFromExToBP : std_logic_vector(15 downto 0) := (others => '0');
     signal branchPredictorPrediction : std_logic; -- 0: continuing with +2, 1: make changes, will get resolved @ALU
     signal PCOutFromBP : std_logic_vector(15 downto 0) := (others => '0'); --BP: branch predictor
     signal branchResultFromEx, performUpdateLogic, predictionForIF : std_logic;
@@ -300,14 +300,14 @@ begin
             opcode_atPCtoPredict => opcodeFromID,
             PCtoPredict => PCFromID,
             --From Ex
-            PCtoUpdate => PCFromEx,
+            PCtoUpdate => PCFromExToBP,
             branchResult => branchResultFromEx,
             performUpdate => performUpdateLogic,
             --To be used by branchPredictorALU to compute next branch
             predictBranchTaken => predictionForIF
         );
     IF_ID_Reg : NBitRegister
-        generic map(N => 32, default => '0')
+        generic map(N => 48, default => '0')
         port map(
             dataIn => FetchToDecodeDataIn,
             writeEnable => NotGotBubble,
@@ -460,8 +460,10 @@ begin
     --Flushing the instructions in case of wrong branch
     DecodeToRegFileDataIn(0) <= GotFlushed;
     RegFileToExecDataIn(0) <= '1' when GotFlushed = '1' else DecodeToRegFileDataOut(0);
+    FetchToDecodeDataIn(47 downto 32) <= PCToBeFetched;
     --Decode Stage linking
-    DecodeToRegFileDataIn(48 downto 33) <= FetchToDecodeDataOut(31 downto 16); --PC
+    -- DecodeToRegFileDataIn(48 downto 33) <= FetchToDecodeDataOut(31 downto 16); --PC
+    DecodeToRegFileDataIn(48 downto 33) <= FetchToDecodeDataOut(47 downto 32);
     DecodeToRegFileDataIn(49) <= predictionForIF;
     --RgeFil Stage linking
     RegFileToExecDataIn(35 downto 33) <= DecodeToRegFileDataOut(3 downto 1); --Reg1Addr
@@ -495,9 +497,9 @@ begin
 
     --BP Linking
     opcodeFromID <= DecodeToRegFileDataIn(32 downto 29);
-    PCFromID <= FetchToDecodeDataOut(31 downto 16);
+    PCFromID <= FetchToDecodeDataOut(47 downto 32);
     -- PCFromEx <= PCfrom_Ex;
-    PCFromEx <= RegFileToExecDataOut(80 downto 65);
+    PCFromExToBP <= RegFileToExecDataOut(80 downto 65);
     branchResultFromEx <= PCbranchSignal_Ex;
     performUpdateLogic <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
     branchPredictorPrediction <= predictionForIF;
@@ -505,9 +507,12 @@ begin
     SignalFromBranchHazard <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
     -- TempSignalForTesting <= '0' when RegFileToExecDataOut(81) = PCbranchSignal_Ex else '1';
     -- SignalFromBranchHazard <= '0';
+    GotFlushed <= SignalFromBranchHazard;
+    -- PCFromBranchHazard <= std_logic_vector(unsigned(RegFileToExecDataOut(80 downto 65)) + 2) when
+    --                             PCbranchSignal_Ex = '0' else PCfrom_Ex;
     PCFromBranchHazard <= std_logic_vector(unsigned(RegFileToExecDataOut(80 downto 65)) + 2) when
                                 PCbranchSignal_Ex = '0' else PCfrom_Ex;
-    PCToBeFetched <= PC_RF when SignalFromBranchHazard = '0' else PCFromBranchHazard;
+    PCToBeFetched <= PCOutFromBP when (SignalFromBranchHazard = '0' and branchPredictorPrediction = '1') else PC_RF when SignalFromBranchHazard = '0' else PCFromBranchHazard;
 
 
 
