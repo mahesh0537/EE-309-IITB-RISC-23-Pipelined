@@ -330,7 +330,7 @@ begin
         generic map(N => 82, default => '0')
         port map(
             dataIn => RegFileToExecDataIn,
-            writeEnable => NotGotBubble,
+            writeEnable => '1',
             clk => clk,
             asyncReset => '0',
             dataOut => RegFileToExecDataOut
@@ -529,7 +529,7 @@ begin
     File OUTFILE: text open write_mode is "testBench/IF_ID_RegTB.out";
 
     begin
-        while i < 500 loop
+        while i < 100 loop
             clk <= not clk;
             wait for 40 ns;
             i := i + 1;
